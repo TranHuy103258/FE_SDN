@@ -1,0 +1,19 @@
+.row.khoi15 {
+	justify-content: space-evenly;
+	margin-bottom: 20px;
+}
+.col-xl-2.khoi15{
+    display:flex;
+	margin: 30px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.col-xl-2.khoi15 a {
+	display: block;
+}
+
+.col-xl-2 a:nth-child(1) {
+	font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 12px;
+}
