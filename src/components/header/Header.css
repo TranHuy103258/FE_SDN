@@ -48,6 +48,21 @@
 
 
 /* hết khối 1 */
+
+nav.khoi2 {
+	padding: 0;
+    background-color:#515154 !important ;
+}
+a.navbar-brand {
+	padding: 0;
+}
+
+a.navbar-brand img{
+    margin: 10px;
+    width: 160px;
+    height: 50px;
+}
+
 .icon  {
 	position: relative;
 	display: flex;
@@ -90,6 +105,7 @@ a#navbarDropdownMenuLink:hover i{
 	transform: rotate(180deg);
 }
 a#navbarDropdownMenuLink{
+    color:white;
 	position: relative;
 	overflow: hidden;
 }
@@ -99,10 +115,11 @@ a#navbarDropdownMenuLink .thanhchay{
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background: black;
+	background: white;
 	opacity:0 ;
 }
 ul.dropdown-menu {
+    top:60px;
 	border: none;
 }
 
@@ -141,7 +158,7 @@ a#navbarDropdownMenuLink:hover  .thanhchay{
 }
 
 .menuchay2_1{
-	position: fixed;
+	position: fixed !important;
 	top: 0;
 	right: 0;
 	z-index: 3;
@@ -151,7 +168,7 @@ a#navbarDropdownMenuLink:hover  .thanhchay{
 
 
 .menuchay2_2{
-	position: fixed;
+	position: fixed !important;
 	top: 0;
 	right: 0;
 	z-index: 3;
@@ -159,7 +176,7 @@ a#navbarDropdownMenuLink:hover  .thanhchay{
 	animation: menuchay2_2 0.5s forwards;
 }
 @-webkit-Keyframes menuchay2_1 {
-	from {transform:translateY(-100%) ;opacity: 0;}
+	from {transform:translateY(-100%);opacity:0;}
 	to {transform:translateY(0) ;opacity: 1;}
 	
 }
@@ -169,50 +186,4 @@ a#navbarDropdownMenuLink:hover  .thanhchay{
 	
 }
 
-nav.khoi2 {
-	padding: 0;
-}
-a.navbar-brand {
-	padding: 0;
-}
-div.login_success {
-	display: none;
-	    font-size: 15px;
-	    font-weight: 500;
-	position: absolute;
-	top: 65px;
-	margin: 0;
-	width: 250px;
-	left: -90px;
-	z-index: 2;
-	border: 1px solid #CCCCCC;
-	box-shadow: 1px 2px 3px;
-	background: white;
-}
-div.ls_title {
-	text-align: center;
-	border-bottom: 1px solid #CCCCCC;
-	padding: 10px;
-	margin: 0 15px;
-}
-div.username {
-	margin: 10px 0px 10px 13px;
-}
-div.vuong {
-	display: none;
-	width: 25px;
-    height: 25px;
-    background: white;
-    position: absolute;
-    top: 56px;
-    left: 11px;
-    transform: rotate(45deg);
-    border: 1px solid #CCCCCC;
-    box-shadow: 1px 2px 3px;
-    z-index: 1;
-}
-.login_success ul li a {
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-}
+

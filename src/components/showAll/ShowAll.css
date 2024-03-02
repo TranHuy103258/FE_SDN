@@ -1,7 +1,7 @@
 a.khoi10{
     border: 1px solid #0066CC;
     border-radius: 8px;
-    padding: 5.5px 45px;
+    padding: 10.5px 40px;
     color: #0066CC;
     font-weight: 400;
     font-size: 14px;
@@ -12,4 +12,8 @@ a.khoi10{
 a.khoi10:hover {
     background-color: #0066CC;
     color:white;
+}
+
+.row.k10{
+    margin-bottom: 30px;
 }

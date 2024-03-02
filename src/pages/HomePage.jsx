@@ -17,12 +17,41 @@ const HomePage = () => {
                 <CollaboratingArtists />
                 <div class="row text-center khoi5">
                     <div class="col-xl-12">
-                        <a href="" title="">Iphone</a>
+                        <a href="" title="" style={{
+                            textDecoration:'none',
+                            fontSize:'30px',color:'black',fontWeight:'bold'
+                            }}>Iphone</a>
 
                     </div>
                 </div>
                 <ProductCard />
                 <ShowAll />
+
+                <div class="row text-center khoi5">
+                    <div class="col-xl-12">
+                        <a href="" title="" style={{
+                            textDecoration:'none',
+                            fontSize:'30px',color:'black',fontWeight:'bold'
+                            }}>Ipad</a>
+
+                    </div>
+                </div>
+                <ProductCard />
+                <ShowAll />
+
+                <div class="row text-center khoi5">
+                    <div class="col-xl-12">
+                        <a href="" title="" style={{
+                            textDecoration:'none',
+                            fontSize:'30px',color:'black',fontWeight:'bold'
+                            }}>Mac</a>
+
+                    </div>
+                </div>
+                <ProductCard />
+                <ShowAll />
+
+
                 <div class="row">
                     <div class="col-xl-12 khoi4">
                         <div class="anh4">

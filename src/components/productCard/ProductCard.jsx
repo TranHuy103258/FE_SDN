@@ -7,7 +7,7 @@ const ProductCard = () => {
 
 
     return (
-        <div class="row">
+        <div class="row k6">
             <div class="col-xl-3">
                 <a class="sanpham" href="SanPham.html" title="">
                     <div class="khoi6">

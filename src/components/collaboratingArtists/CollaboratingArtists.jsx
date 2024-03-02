@@ -23,7 +23,7 @@ const CollaboratingArtists = () => {
 
     
     return (
-        <div class="row">
+        <div class="row k4">
             <div class="col-xl-4 khoi4 p1">
                 <div class="trang4"></div>
                 <div class="anh4">

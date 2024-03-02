@@ -37,6 +37,41 @@ const Header = () => {
                     thanhchay[i].classList.add('chay2');
                 })
             }
+
+            var trangthaimenu = 'duoimenu'
+            var menu = document.querySelector('nav.khoi2')
+            var vitrimenu = menu.offsetTop;
+            console.log(vitrimenu);
+            var i = -1;
+
+            window.addEventListener('scroll', function () {
+                console.log(window.pageYOffset);
+                if (window.pageYOffset > vitrimenu) {
+                    console.log('helloo')
+                    // if(trangthaimenu=='duoimenu') {
+                    // console.log('trên menu');
+                    // trangthaimenu='trenmenu';
+                    // menu.classList.add('menu2');
+                    if (window.pageYOffset > i) {
+                        i = window.pageYOffset;
+                        menu.classList.remove('menuchay2_1');
+                        menu.classList.add('menuchay2_2');
+                    } else {
+                        i = window.pageYOffset;
+                        menu.classList.add('menuchay2_1');
+                        menu.classList.remove('menuchay2_2');
+                    }
+                    // }	
+                } else if (window.pageYOffset < vitrimenu) {
+
+                    // if(trangthaimenu=='trenmenu') {
+                    console.log('dưới menu');
+                    trangthaimenu = 'duoimenu';
+                    menu.classList.remove('menuchay2_1');
+                    // }
+                }
+
+            })
         }
 
         handleDropdown();
@@ -62,9 +97,9 @@ const Header = () => {
 
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light khoi2" >
-                <div class="container-fluid">
+                <div class="container">
                     <a class="navbar-brand" href="home.html">
-                        <img src="img/1.png" alt="" />
+                        <img src="img/3.png" alt="" />
 
                     </a>
 
@@ -76,35 +111,50 @@ const Header = () => {
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="Nam.html" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-                                    NAM
+                                    iPhone
                                     <i class="fa fa-chevron-down"></i>
                                     <div class="thanhchay"></div>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Hunter</a></li>
-                                    <li><a class="dropdown-item" href="#">Sandal</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Thể Thao</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Chạy Bộ</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Đá Banh</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Tây</a></li>
-                                    <li><a class="dropdown-item" href="#">Dép</a></li>
+                                    <li><a class="dropdown-item" href="#">iPhone 15 series</a></li>
+                                    <li><a class="dropdown-item" href="#">iPhone 14 series</a></li>
+                                    <li><a class="dropdown-item" href="#">iPhone 13 series</a></li>
+                                    <li><a class="dropdown-item" href="#">iPhone 12 series</a></li>
+                                    <li><a class="dropdown-item" href="#">iPhone 11 series</a></li>
+                                    <li><a class="dropdown-item" href="#">iPhone SE</a></li>
+                                   
                                 </ul>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="Nu.html" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-                                    NỮ
+                                    iPad
                                     <i class="fa fa-chevron-down"></i>
                                     <div class="thanhchay"></div>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Hunter</a></li>
-                                    <li><a class="dropdown-item" href="#">Sandal</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Thể Thao</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Chạy Bộ</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Đá Banh</a></li>
-                                    <li><a class="dropdown-item" href="#">Giày Tây</a></li>
-                                    <li><a class="dropdown-item" href="#">Dép</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad Pro M1</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad Pro M2</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad Air </a></li>
+                                    <li><a class="dropdown-item" href="#">iPad 9</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad 10</a></li>
+                                    <li><a class="dropdown-item" href="#">ipad Mini</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="Nu.html" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                                    Mac
+                                    <i class="fa fa-chevron-down"></i>
+                                    <div class="thanhchay"></div>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">iPad Pro M1</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad Pro M2</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad Air </a></li>
+                                    <li><a class="dropdown-item" href="#">iPad 9</a></li>
+                                    <li><a class="dropdown-item" href="#">iPad 10</a></li>
+                                    <li><a class="dropdown-item" href="#">ipad Mini</a></li>
                                 </ul>
                             </li>
 

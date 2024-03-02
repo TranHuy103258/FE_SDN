@@ -13,16 +13,16 @@ const Carousel = () => {
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="img/1.webp" class="d-block w-100" alt="..."/>
+                            <img src="img/8.jpg" class="d-block w-100" alt="..."/>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/2.webp" class="d-block w-100" alt="..."/>
+                            <img src="img/9.jpg" class="d-block w-100" alt="..."/>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/1.webp" class="d-block w-100" alt="..."/>
+                            <img src="img/10.jpg" class="d-block w-100" alt="..."/>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/1.webp" class="d-block w-100" alt="..."/>
+                            <img src="img/11.jpg" class="d-block w-100" alt="..."/>
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
