@@ -149,17 +149,18 @@ const Header = () => {
                                     <div class="thanhchay"></div>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">iPad Pro M1</a></li>
-                                    <li><a class="dropdown-item" href="#">iPad Pro M2</a></li>
-                                    <li><a class="dropdown-item" href="#">iPad Air </a></li>
-                                    <li><a class="dropdown-item" href="#">iPad 9</a></li>
-                                    <li><a class="dropdown-item" href="#">iPad 10</a></li>
-                                    <li><a class="dropdown-item" href="#">ipad Mini</a></li>
+                                    <li><a class="dropdown-item" href="#">MacBook Pro M2</a></li>
+                                    <li><a class="dropdown-item" href="#">MacBook Pro M3</a></li>
+                                    <li><a class="dropdown-item" href="#">MacBook Air</a></li>
+                                    <li><a class="dropdown-item" href="#">iMac</a></li>
+                                    <li><a class="dropdown-item" href="#">Mac Mini</a></li>
+                                    <li><a class="dropdown-item" href="#">Mac Pro</a></li>
+                                    <li><a class="dropdown-item" href="#">Mac Studio</a></li>
                                 </ul>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="Nam.html">Khuyến Mãi</a>
+                            <li class="nav-item" style={{padding:'10px',}}>
+                                <a class="nav-link" href="Nam.html" style={{color:'white'}}>Khuyến Mãi</a>
                             </li>
                         </ul>
 

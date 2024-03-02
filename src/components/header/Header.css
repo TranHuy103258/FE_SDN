@@ -113,10 +113,15 @@ a#navbarDropdownMenuLink .thanhchay{
 	position: absolute;
 	bottom: 0;
 	left: 0;
+    z-index: 4;
 	width: 100%;
 	height: 2px;
-	background: white;
+	background:white;
 	opacity:0 ;
+}
+
+li.nav-item.dropdown {
+    padding:10px;
 }
 ul.dropdown-menu {
     top:60px;

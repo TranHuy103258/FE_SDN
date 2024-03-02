@@ -2,56 +2,53 @@ import React from 'react';
 import './Footer.css';
 const Footer = () => {
     return (
-        <>
+        <div class="footer">
             <div class="container">
-                <div class="row khoi15">
-                    <div class="col-xl-2 khoi15">
-                        <a>VỀ BITI'S</a><br />
-                        <a>Về Bitis</a><br />
-                        <a>Câu chuyện Biti's</a><br />
-                        <a>Bước tiến phát triển</a><br />
-                        <a>Hoạt Động</a><br />
-                        <a>Liên hệ</a><br />
+                <div class="row k15">
+                    <div class="col-xl-4 khoi15">
+                        <div class="logo15">
+                            <img src="img/3.png" alt="" />
+                        </div>
+                        <p class="khoi15">
+                        Năm 2020, ShopDunk trở thành đại lý ủy quyền của Apple. Chúng tôi phát triển chuỗi cửa hàng 
+                        tiêu chuẩn và Apple Mono Store nhằm mang đến trải nghiệm tốt nhất về sản phẩm và dịch vụ của
+                         Apple cho người dùng Việt Nam.
+                        </p>
 
                     </div>
+
                     <div class="col-xl-2 khoi15">
                         <a>THÔNG TIN</a><br />
-                        <a>Trạng thái đơn hàng</a><br />
-                        <a>Hình thức giao hàng</a><br />
-                        <a>Hình thức thanh toán</a><br />
-                        <a>Chính sách đổi trả</a><br />
-                        <a>Chính sách bảo hành</a><br />
-                        <a>Chính sách khách hàng thân thiết</a><br />
+                        <a>Tin tức</a><br />
+                        <a>Giới thiệu</a><br />
+                        <a>Check IMEI</a><br />
+                        <a>Thuê điểm bán lẻ</a><br />
+                        <a>Bảo hành và sửa chữa</a><br />
                     </div>
+
+
                     <div class="col-xl-2 khoi15">
-                        <a>TRỢ GIÚP</a><br />
-                        <a>Tuyển Dụng</a><br />
-                        <a>Hệ thống cửa hàng</a><br />
-                        <a>Liên hệ hợp tác</a><br />
-                        <a>Q&A</a><br />
+                        <a>Chính Sách</a><br />
+                        <a>Thu cũ đổi mới</a><br />
+                        <a>Giao Hàng</a><br />
+                        <a>Huỷ giao dịch</a><br />
+                        <a>Đổi trả</a><br />
+                        <a>Bảo Hành</a><br />
 
                     </div>
-                    <div class="col-xl-4">
-                        <div class="logo14">
-                            <img src="img/1.png" alt="" />
-                        </div>
-                        <p>
-                            CÔNG TY TNHH SẢN XUẤT HÀNG TIÊU DÙNG BÌNH TIÊN<br />
-                            Địa chỉ: 22 Lý Chiêu Hoàng, Phường 10, Quận 6, TP. Hồ Chí Minh<br />
-                            Điện thoại: (028) 38 753 443<br />
-                            <br />
-                            Email: Liên hệ các vấn đề về đặt hàng online : tuvan_online@bitis.com.vn<br />
-                            Email: Liên hệ các vấn đề về kênh cửa hàng, đại lý (offline) : chamsockhachhang@bitis.com.vn<br />
-                            <br />
-                            Hotline: 19002126 ( cước phí: 3.000đ/phút )<br />
-                            Thời gian tư vấn: Từ 07h30 đến 12h15, 13h15 đến 21h30 các ngày trong tuần ( Trừ ngày Lễ, Tết)<br />
-                        </p>
+                   
+                    <div class="col-xl-2 khoi15">
+                        <a>Địa chỉ & liên hệ</a><br />
+                        <a>Tài Khoản của tôi</a><br />
+                        <a>Đơn đặt hàng</a><br />
+                        <a>Hệ thống cửa hàng</a><br />
+                        <a>Doanh nghiệp:<b style={{color:'#0066cc'}}>0822.688.668</b></a><br />
 
                     </div>
 
                 </div>
             </div>
-        </>
+        </div>
 
     );
 };
