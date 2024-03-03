@@ -62,16 +62,16 @@ a.navbar-brand img{
     width: 160px;
     height: 50px;
 }
-
+#navbarNavDropdown{
+	justify-content: space-between;
+	font-size: 20px;
+}
 .icon  {
 	position: relative;
 	display: flex;
-	margin-left: 470px;
+	
 }
-#navbarNavDropdown{
-	justify-content: space-evenly;
-	font-size: 20px;
-}
+
 .icon1 {
 	margin: 15px;
 	position: relative;
@@ -90,7 +90,8 @@ a.navbar-brand img{
     top: -7px;
     right: -7px;
 }
-.icon i {
+i.khoi2 {
+    color:#ffffffb0;
 	cursor: pointer;
 }
 
@@ -123,12 +124,18 @@ a#navbarDropdownMenuLink .thanhchay{
 li.nav-item.dropdown {
     padding:10px;
 }
+li.nav-item:hover {
+    background-color:gray ;
+}
 ul.dropdown-menu {
+    left:0px;
     top:60px;
 	border: none;
 }
 
-li a.dropdown-item {
+
+
+a.dropdown-item {
 	background: white;
 	border-bottom: 1px solid #ECF0F1;
 	opacity: 0.85;
@@ -139,6 +146,55 @@ a#navbarDropdownMenuLink:hover  .thanhchay{
 	animation: divao 1s forwards;
 	opacity: 1;
 }
+
+
+div.login{
+	display: none;
+	    font-size: 15px;
+	    font-weight: 500;
+	position: absolute;
+	top: 48px;
+	margin: 0;
+	width: 250px;
+	left: -105px;
+	z-index: 3;
+	border: 1px solid #CCCCCC;
+	box-shadow: 1px 2px 3px;
+	background: white;
+    
+}
+
+.show1{
+    display:block !important;
+}
+
+a.login {
+    text-decoration: none !important;
+    color:black !important;
+}
+
+
+div.ls_title {
+	text-align: center;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
+	margin: 5px 15px;
+}
+
+div.vuong {
+	display: none;
+	width: 25px;
+    height: 25px;
+    background: white;
+    position: absolute;
+    top: 35px;
+    left:-3px;
+    transform: rotate(45deg);
+    border: 1px solid #CCCCCC;
+    box-shadow: 1px 2px 3px;
+    z-index: 2;
+}
+
 /* .chay1{
 	animation: divao 1s forwards;
 	opacity: 1 !important;

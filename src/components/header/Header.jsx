@@ -8,8 +8,13 @@ const Header = () => {
         function handleDropdown() {
             var pt1 = document.querySelectorAll('a#navbarDropdownMenuLink');
             var pt2 = document.querySelectorAll('ul.dropdown-menu');
-            var k;
-            var trangthai = 'trangthai1';
+            var d2=document.querySelectorAll('div.icon1.user');
+            console.log(d2[0]);
+
+            var pt4=document.querySelectorAll('div.vuong');
+            var pt5=document.querySelectorAll('div.login');
+            console.log(pt4[0]);
+
             var d1 = document.querySelectorAll('li.nav-item.dropdown');
 
             for (let i = 0; i < pt1.length; i++) {
@@ -22,6 +27,15 @@ const Header = () => {
                     pt2[i].classList.remove('show');
                 })
             }
+
+            d2[0].addEventListener('mousemove', function (event) {
+                pt4[0].classList.add('show1');
+                pt5[0].classList.add('show1');
+            })
+            d2[0].addEventListener('mouseleave', function (event) {
+                pt4[0].classList.remove('show1');
+                pt5[0].classList.remove('show1');
+            })
 
             var pt3 = document.querySelectorAll('li.nav-item.dropdown');
             var thanhchay = document.querySelectorAll('.thanhchay');
@@ -47,11 +61,7 @@ const Header = () => {
             window.addEventListener('scroll', function () {
                 console.log(window.pageYOffset);
                 if (window.pageYOffset > vitrimenu) {
-                    console.log('helloo')
-                    // if(trangthaimenu=='duoimenu') {
-                    // console.log('trên menu');
-                    // trangthaimenu='trenmenu';
-                    // menu.classList.add('menu2');
+
                     if (window.pageYOffset > i) {
                         i = window.pageYOffset;
                         menu.classList.remove('menuchay2_1');
@@ -61,14 +71,14 @@ const Header = () => {
                         menu.classList.add('menuchay2_1');
                         menu.classList.remove('menuchay2_2');
                     }
-                    // }	
+
                 } else if (window.pageYOffset < vitrimenu) {
 
-                    // if(trangthaimenu=='trenmenu') {
+
                     console.log('dưới menu');
                     trangthaimenu = 'duoimenu';
                     menu.classList.remove('menuchay2_1');
-                    // }
+
                 }
 
             })
@@ -122,7 +132,7 @@ const Header = () => {
                                     <li><a class="dropdown-item" href="#">iPhone 12 series</a></li>
                                     <li><a class="dropdown-item" href="#">iPhone 11 series</a></li>
                                     <li><a class="dropdown-item" href="#">iPhone SE</a></li>
-                                   
+
                                 </ul>
                             </li>
 
@@ -159,10 +169,38 @@ const Header = () => {
                                 </ul>
                             </li>
 
-                            <li class="nav-item" style={{padding:'10px',}}>
-                                <a class="nav-link" href="Nam.html" style={{color:'white'}}>Khuyến Mãi</a>
+                            <li class="nav-item" style={{ padding: '10px', }}>
+                                <a class="nav-link" href="Nam.html" style={{ color: 'white' }}>Khuyến Mãi</a>
                             </li>
                         </ul>
+
+                        <div class="icon">
+
+                            <div class="icon1">
+                                <i class="fa-solid fa-magnifying-glass khoi2"></i>
+
+                            </div>
+
+                            <div class="icon1 user">
+                                <div class="vuong"></div>
+                                <div class="login">
+                                    <div class="ls_title">
+                                        <a class="login" href="#">Tạo tài khoản ngay</a>
+                                    </div>
+                                    <div class="ls_title">
+                                        <a class="login" href="#">Đăng Nhập</a>
+                                    </div>
+                                </div>
+                                <i class="fa-regular fa-user khoi2"></i>
+
+                            </div>
+
+                            <div class="icon1">
+                                <div class="khoiden2">6</div>
+                                <i class="fa-solid fa-cart-shopping khoi2"></i>
+
+                            </div>
+                        </div>
 
                     </div>
                 </div>
