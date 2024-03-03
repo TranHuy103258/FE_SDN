@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import OrderPage from './pages/OrderPage';
+import UserHomePage from './pages/UserHomePage';
 import OrderDetailPage from './pages/OrderDetailPage';
 import ProductPage from './pages/ProductPage';
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<RegisterPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/userhome" element={<UserHomePage/>}/>
           <Route path="/order" element={<OrderPage/>}/>
           <Route path="/orderdetail" element={<OrderDetailPage/>}/>
           <Route path="/cart" element={<CartPage/>}/>
