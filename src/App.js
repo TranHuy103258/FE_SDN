@@ -12,22 +12,24 @@ function App() {
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/cart" element={<CartPage />} />
-                    <Route path="/product" element={<ProductPage />} />
+                    <Route path="/register" element={<RegisterPage/>}/>
+                    <Route path="/login" element={<LoginPage/>}/>
+                    <Route path="/userhome" element={<UserHomePage/>}/>
+                    <Route path="/order" element={<OrderPage/>}/>
+                    <Route path="/orderdetail" element={<OrderDetailPage/>}/>
+                    <Route path="/cart" element={<CartPage/>}/>
+                    <Route path="/product" element={<ProductPage/>}/>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/allProducts" element={<AllProduct />} />
 
                     {/* <Route path="/product" element={<Products/>}/> */}
                     {/* <Route path="/products/:productId" element={<ProductDetail/>}/> */}
                     {/* <Route path='/admin' element={<HomeAdmin />}>
-            <Route index element={<TableAlbum />} />
-            <Route path="/admin/albums" element={<TableAlbum />} />
-            <Route path="/admin/songs" element={<TableSong />} />
-            <Route path="/admin/users" element={<TableUser />} />
-          </Route> */}
+                        <Route index element={<TableAlbum />} />
+                        <Route path="/admin/albums" element={<TableAlbum />} />
+                        <Route path="/admin/songs" element={<TableSong />} />
+                        <Route path="/admin/users" element={<TableUser />} />
+                        </Route> */}
                 </Routes>
             </BrowserRouter>
         </div>

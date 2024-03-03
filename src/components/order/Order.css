@@ -1,0 +1,36 @@
+.paymentMethods {
+    width:100%;
+}
+
+.tt-address-select{
+    color:black;
+    text-align: left;
+    font-weight: bold;
+    font-size: 17px;
+    margin: 10px 0px;
+}
+
+.method_list{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.payment_details{
+    border-radius: 10px;
+    border:1px gray solid;
+    display:flex;
+    width:47.5%;
+    align-items: center;
+    justify-content: space-around;
+}
+.paymet_logo img{
+    width: 50px;
+    height:50px;
+
+}    
+.payment_name {
+    color:black;
+    font-weight: bold;
+}

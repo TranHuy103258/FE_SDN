@@ -37,20 +37,22 @@ const Product = () => {
                     <form  >
 
 
-                        <p class="name">
-                            oke
-                        </p>
-                        <p class="gia">12233 ₫</p>
+                        <p class="tensanpham">Iphone 15 Pro Max 256GB</p>
+                        <div class="gia">
+                            <p class="giagiam">14.450.000 ₫</p>
+                            <p class="giabandau">24.990.000 ₫</p>
+
+                        </div>
 
                         <p class="chinhsach">
-                            Mua trước trả sau với Kredivo <br/>
-                                Trả sau lên đến 12 tháng | Ưu đãi 50% tối đa 100k | Tải app và đăng ký ngay
-                                <a href="" title="">tại đây</a>
+                            Mua trước trả sau với Kredivo <br />
+                            Trả sau lên đến 12 tháng | Ưu đãi 50% tối đa 100k | Tải app và đăng ký ngay
+                            <a href="" title="">tại đây</a>
                         </p>
                         <p class="tinhtrang">
                             Tình trạng: Còn hàng (10)
                         </p>
-                        <p style={{fontSize:'15px'}} >Kích Thước:</p>
+                        <p style={{ fontSize: '15px' }} >Kích Thước:</p>
 
                         <p class="khoiluong">
                             <button><a href="">-</a></button>
