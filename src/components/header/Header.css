@@ -1,4 +1,4 @@
-.khoi {
+.khoi1 {
 	background: black;
 }
 .khoi {
@@ -10,12 +10,13 @@
 .khoitrai {
     display: flex;
     color:white;
-   	margin: 10px 20px;
+   	margin: 10px 0px;
    	
 } 
 .khoiphai {
 	display: flex;
 	margin: 10px 0px;
+    justify-content: flex-end;
 
 }
 
@@ -50,6 +51,7 @@
 /* hết khối 1 */
 
 nav.khoi2 {
+    /* margin-bottom: 60px; */
 	padding: 0;
     background-color:#515154 !important ;
 }

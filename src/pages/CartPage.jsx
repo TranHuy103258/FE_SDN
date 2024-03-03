@@ -1,18 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Header from '../components/header/Header';
-import Login from '../components/login/Login';
+import Cart from '../components/cart/Cart';
 import Footerr from '../components/footer/Footer';
-const LoginPage = () => {
+const CartPage = () => {
 
     return (
         <>
             <Header />
-            <Login/>
+            <Cart/>
             <Footerr/>
 
         </>
     );
 };
 
-export default LoginPage;
+export default CartPage;

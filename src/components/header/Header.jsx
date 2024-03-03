@@ -8,11 +8,11 @@ const Header = () => {
         function handleDropdown() {
             var pt1 = document.querySelectorAll('a#navbarDropdownMenuLink');
             var pt2 = document.querySelectorAll('ul.dropdown-menu');
-            var d2=document.querySelectorAll('div.icon1.user');
+            var d2 = document.querySelectorAll('div.icon1.user');
             console.log(d2[0]);
 
-            var pt4=document.querySelectorAll('div.vuong');
-            var pt5=document.querySelectorAll('div.login');
+            var pt4 = document.querySelectorAll('div.vuong');
+            var pt5 = document.querySelectorAll('div.login');
             console.log(pt4[0]);
 
             var d1 = document.querySelectorAll('li.nav-item.dropdown');
@@ -89,18 +89,20 @@ const Header = () => {
 
     return (
         <>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="khoi">
-                        <div class="col-xl-4 khoitrai">
-                            <p>Hotline: 19002126 (8h - 12h, 13h30 - 17h)</p>
-                            <a href="" title="">Liên hệ hợp tác</a>
-                        </div>
-                        <div class="col-xl-3 khoiphai">
-                            <a href="" title="">Tìm cửa hàng</a>
-                            <a href="" title="">Mua hàng tại Shopify</a>
-                        </div>
+            < div class="khoi1">
+                <div class="container">
+                    <div class="row">
+                        <div class="khoi">
+                            <div class="col-xl-4 khoitrai">
+                                <p>Hotline: 19002126 (8h - 12h, 13h30 - 17h)</p>
+                                <a href="" title="">Liên hệ hợp tác</a>
+                            </div>
+                            <div class="col-xl-3 khoiphai">
+                                <a href="" title="">Tìm cửa hàng</a>
+                                <a href="" title="">Mua hàng tại Shopify</a>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

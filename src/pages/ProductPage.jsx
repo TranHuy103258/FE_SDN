@@ -1,18 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Header from '../components/header/Header';
-import Login from '../components/login/Login';
+import Product from '../components/product/Product';
 import Footerr from '../components/footer/Footer';
-const LoginPage = () => {
+const ProductPage = () => {
 
     return (
         <>
             <Header />
-            <Login/>
+            <Product/>
             <Footerr/>
 
         </>
     );
 };
 
-export default LoginPage;
+export default ProductPage;
