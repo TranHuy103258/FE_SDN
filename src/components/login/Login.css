@@ -1,0 +1,25 @@
+.dangnhap {
+    display:flex;
+    justify-content: space-around;
+    margin: 150px 0px;
+}
+
+.col-xl-4.dn {
+    display: flex;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+}
+
+.dn1 {
+    width: 100%;
+    margin-right: 0px !important;
+}
+
+button.dn1 {
+    background: #0066CC!important;
+    border:none;
+    
+}
