@@ -1,0 +1,78 @@
+/* *{
+	margin: 0;
+	padding: 0;
+} */
+
+.dk2 {
+	justify-content: center;
+	color: #868D95;
+	font-size: 14px;
+}	
+p.tieude {
+	text-align:center;
+	color: black;
+	font-size: 25px;
+	font-weight:bold;
+}
+p.tieude a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+p.tieude a:nth-child(1) {
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 4px solid #CCCCCC;    
+}
+
+p.input {
+    color: black;
+    font-weight: bold;
+    text-align: left;
+}
+
+p.input input {
+	background:#EDEDED;
+	border: none;
+	width: 100%;
+	height: 40px; 
+	padding: 10px;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+p.chinhsachdk a,p.submit a{
+	text-decoration: none;
+}
+
+div.submit_wrapper {
+	display: flex;
+}
+div.submit {
+	margin-right: 20px;
+	margin-bottom: 20px;
+}	
+div.submit button {
+
+	padding:10px 25px;
+	color: white;
+	background: black;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+}
+a.trangchu {
+	text-decoration: none;
+}
+a.trangchu i {
+	margin-right: 10px;
+}
+p.gioitinh input{
+	width: 20px;
+	height: 20px;
+}
+p.gioitinh {
+	font-size: 18px;
+    display: flex;
+    align-items: center;
+}

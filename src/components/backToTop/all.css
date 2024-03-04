@@ -1,0 +1,19 @@
+.topbtn {
+    position: absolute;
+    right: 0;
+    margin-top: -5rem;
+    padding:1rem;
+    border: none;
+    border-radius: 100%;
+    background-color: rgb(247, 4, 4);
+    cursor: pointer;
+}
+
+/* style={{
+    position: "absolute",
+    bottom: "10px",
+    right: "10px",
+    height: "10px",
+    width: "10px",
+    fontSize: "10px",
+  }} */

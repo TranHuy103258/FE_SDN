@@ -1,0 +1,250 @@
+.khoi {
+	background: black;
+}
+.khoi {
+	display: flex;
+	justify-content: space-between;
+	font-size: 15px;
+}
+
+.khoitrai {
+    display: flex;
+    color:white;
+   	margin: 10px 20px;
+   	
+} 
+.khoiphai {
+	display: flex;
+	margin: 10px 0px;
+
+}
+
+.khoiphai  a{
+	text-decoration: none;
+	color: white;
+
+}
+.khoiphai a:nth-child(2) {
+	color: white;
+	border-left: 2px solid white;
+	padding-left: 10px;	
+}  
+.khoiphai a:nth-child(1) {
+	padding-right: 10px;	
+}    
+
+.khoitrai p {
+    margin-bottom: 0px;
+    margin: 0 10px;
+
+} 
+
+.khoitrai a {
+	text-decoration: none;
+	color: white;
+	border-left: 2px solid white;
+	padding-left: 10px;	
+} 
+
+
+/* hết khối 1 */
+
+nav.khoi2 {
+	padding: 0;
+    background-color:#515154 !important ;
+}
+a.navbar-brand {
+	padding: 0;
+}
+
+a.navbar-brand img{
+    margin: 10px;
+    width: 160px;
+    height: 50px;
+}
+#navbarNavDropdown{
+	justify-content: space-between;
+	font-size: 20px;
+}
+.icon  {
+	position: relative;
+	display: flex;
+	
+}
+
+.icon1 {
+	margin: 15px;
+	position: relative;
+}
+
+.khoiden2 {
+	color: white;
+    font-size: 15px;
+    padding: 0 5px;
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background:black;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+}
+i.khoi2 {
+    color:#ffffffb0;
+	cursor: pointer;
+}
+
+a#navbarDropdownMenuLink:after {
+	content: none !important;
+}
+a#navbarDropdownMenuLink i{
+	font-size: 10px;
+
+}
+a#navbarDropdownMenuLink:hover i{
+	transform: rotate(180deg);
+}
+a#navbarDropdownMenuLink{
+    color:white;
+	position: relative;
+	overflow: hidden;
+}
+a#navbarDropdownMenuLink .thanhchay{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+    z-index: 4;
+	width: 100%;
+	height: 2px;
+	background:white;
+	opacity:0 ;
+}
+
+li.nav-item.dropdown {
+    padding:10px;
+}
+li.nav-item:hover {
+    background-color:gray ;
+}
+ul.dropdown-menu {
+    left:0px;
+    top:60px;
+	border: none;
+}
+
+
+
+a.dropdown-item {
+	background: white;
+	border-bottom: 1px solid #ECF0F1;
+	opacity: 0.85;
+}
+
+
+a#navbarDropdownMenuLink:hover  .thanhchay{
+	animation: divao 1s forwards;
+	opacity: 1;
+}
+
+
+div.login{
+	display: none;
+	    font-size: 15px;
+	    font-weight: 500;
+	position: absolute;
+	top: 48px;
+	margin: 0;
+	width: 250px;
+	left: -105px;
+	z-index: 3;
+	border: 1px solid #CCCCCC;
+	box-shadow: 1px 2px 3px;
+	background: white;
+    
+}
+
+.show1{
+    display:block !important;
+}
+
+a.login {
+    text-decoration: none !important;
+    color:black !important;
+}
+
+
+div.ls_title {
+	text-align: center;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
+	margin: 5px 15px;
+}
+
+div.vuong {
+	display: none;
+	width: 25px;
+    height: 25px;
+    background: white;
+    position: absolute;
+    top: 35px;
+    left:-3px;
+    transform: rotate(45deg);
+    border: 1px solid #CCCCCC;
+    box-shadow: 1px 2px 3px;
+    z-index: 2;
+}
+
+/* .chay1{
+	animation: divao 1s forwards;
+	opacity: 1 !important;
+}
+
+.chay2{
+	animation: divao1 1s forwards;
+	opacity: 1 !important;
+} */
+
+
+
+@-webkit-Keyframes divao {
+	from {transform:translateX(-100%) ;opacity: 0;}
+	to {transform:translateX(0) ;opacity: 1;}
+	
+}
+@-webkit-Keyframes divao1 {
+	from {transform: translateX(0) ;}
+	to {transform: translateX(100%); }
+	
+}
+
+.menuchay2_1{
+	position: fixed !important;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	width: 100%;
+	animation: menuchay2_1 0.5s forwards;
+}
+
+
+.menuchay2_2{
+	position: fixed !important;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	width: 100%;
+	animation: menuchay2_2 0.5s forwards;
+}
+@-webkit-Keyframes menuchay2_1 {
+	from {transform:translateY(-100%);opacity:0;}
+	to {transform:translateY(0) ;opacity: 1;}
+	
+}
+@-webkit-Keyframes  menuchay2_2  {
+	from {transform: translateY(0);}
+	to {transform: translateY(-100%); }
+	
+}
+
+
