@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from '../components/header/Header';
 import UserHome from '../components/userHome/UserHome';
 import Footerr from '../components/footer/Footer';
-const LoginPage = () => {
+const UserHomePage = () => {
 
     return (
         <>
@@ -15,4 +15,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default UserHomePage;
