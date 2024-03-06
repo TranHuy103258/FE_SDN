@@ -6,7 +6,6 @@ import CollaboratingArtists from "../components/collaboratingArtists/Collaborati
 import ProductCard from "../components/productCard/ProductCard";
 import ShowAll from "../components/showAll/ShowAll";
 import Footerr from "../components/footer/Footer";
-import BackToTop from "../components/backToTop/BackToTop";
 const HomePage = () => {
   return (
     <>
@@ -17,7 +16,7 @@ const HomePage = () => {
         <div class="row text-center khoi5">
           <div class="col-xl-12">
             <a
-              href=""
+              href="/allProducts"
               title=""
               style={{
                 textDecoration: "none",
@@ -32,12 +31,11 @@ const HomePage = () => {
         </div>
         <ProductCard />
         <ShowAll />
-        <BackToTop />
 
         <div class="row text-center khoi5">
           <div class="col-xl-12">
             <a
-              href=""
+              href="/allProducts"
               title=""
               style={{
                 textDecoration: "none",
@@ -56,7 +54,7 @@ const HomePage = () => {
         <div class="row text-center khoi5">
           <div class="col-xl-12">
             <a
-              href=""
+              href="/allProducts"
               title=""
               style={{
                 textDecoration: "none",
