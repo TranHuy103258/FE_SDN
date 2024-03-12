@@ -9,6 +9,8 @@ import UserHomePage from "./pages/UserHomePage";
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage";
 import AllProduct from "./pages/AllProduct";
+import Dashboard from "./Admin/pages/DashBoard/DashBoard";
+import BlogList from "./Admin/pages/Blog/BlogList";
 
 function App() {
   return (
@@ -25,14 +27,15 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/allProducts" element={<AllProduct />} />
 
-          {/* <Route path="/product" element={<Products/>}/> */}
-          {/* <Route path="/products/:productId" element={<ProductDetail/>}/> */}
-          {/* <Route path='/admin' element={<HomeAdmin />}>
-                        <Route index element={<TableAlbum />} />
-                        <Route path="/admin/albums" element={<TableAlbum />} />
-                        <Route path="/admin/songs" element={<TableSong />} />
-                        <Route path="/admin/users" element={<TableUser />} />
-                        </Route> */}
+          {/*   <Route path="/product" element={<Products />} />
+                <Route path="/products/:productId" element={<ProductDetail />} /> */}
+
+          <Route path="/admin" element={<Dashboard />}>
+            <Route index element={<Dashboard />} />
+            <Route path="/admin/blog" element={<BlogList />} />
+            <Route path="/admin/songs" element={<Dashboard />} />
+            <Route path="/admin/users" element={<Dashboard />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
