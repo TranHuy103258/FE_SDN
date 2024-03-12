@@ -1,22 +1,18 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Header from '../components/header/Header';
-import Register from '../components/register/Register'
-<<<<<<< HEAD
-
-=======
->>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
+import Order from '../components/order/Order';
 import Footerr from '../components/footer/Footer';
-const RegisterPage = () => {
+const OrderPage = () => {
 
     return (
         <>
             <Header />
-            <Register/>
+            <Order/>
             <Footerr/>
 
         </>
     );
 };
 
-export default RegisterPage;
+export default OrderPage;

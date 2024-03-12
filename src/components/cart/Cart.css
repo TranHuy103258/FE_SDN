@@ -1,0 +1,122 @@
+
+#cart-container table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed ;
+    
+}
+#cart-container table thead{
+    font-weight: 700;
+}
+#cart-container table thead td{
+    background: white;
+    color: black;
+   
+    padding: 6px 0;
+}
+#cart-container table td{
+    border: 1px solid  gray;
+    text-align: center;
+}
+#cart-container table td:nth-child(1){
+    width: 100px;
+}
+#cart-container table td:nth-child(2),
+#cart-container table td:nth-child(3){
+    width: 200px;
+}
+#cart-container table td:nth-child(4),
+#cart-container table td:nth-child(5),
+#cart-container table td:nth-child(6){
+    width: 170px;
+}
+#cart-container table tbody img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#cart-container table tbody i{
+    color: gray;
+}
+#cart-bottom .coupon>div,
+#cart-bottom .total>div{
+    border: 1px solid  rgb(51, 35, 35);
+
+}
+#cart-bottom .coupon h5,
+#cart-bottom .total h5{
+    border-bottom: 1px black solid;
+    background:white;
+    color: black;
+    padding: 6px 12px;
+    font-weight: 700;
+}
+#cart-bottom .coupon p,#cart-bottom .coupon input{
+    padding: 0 12px
+}
+#cart-bottom .coupon input{
+    height: 44px;
+
+}
+#cart-bottom .coupon input{
+    margin: 0 0 20px 12px;
+    
+}
+#cart-bottom .total div>div{
+    padding: 0 12px;
+}
+#cart-bottom .total h6{
+    color: rgb(53, 42, 42);
+}
+.second-hr {
+    background: rgb(180, 18, 18);
+    width: 100%;
+    height: 1px;
+}
+#cart-bottom .total div>button{
+    margin-left:auto;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+td.numProduct {
+    height:200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+td.numProduct input[type="text"] {
+    text-align: center;
+    width: 20%;
+    height: 30%;
+}
+td.numProduct button a {
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+} 
+td.numProduct button {
+    width: 35px;
+    height: 30%;
+/*    border: 1px solid #F3F4F4;*/
+    background-color: white;
+    margin:0px 5px;
+} 
+
+.cart {
+    justify-content: flex-end;
+}
+
+
+
+button.cart {
+    background:#0066CC;
+    color:white;
+    padding:10px;
+    border:none;
+    border-radius: 5px;
+}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .khoi {
+=======
+.khoi1 {
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
 	background: black;
 }
 .khoi {
@@ -10,12 +14,20 @@
 .khoitrai {
     display: flex;
     color:white;
+<<<<<<< HEAD
    	margin: 10px 20px;
+=======
+   	margin: 10px 0px;
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
    	
 } 
 .khoiphai {
 	display: flex;
 	margin: 10px 0px;
+<<<<<<< HEAD
+=======
+    justify-content: flex-end;
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
 
 }
 
@@ -50,6 +62,10 @@
 /* hết khối 1 */
 
 nav.khoi2 {
+<<<<<<< HEAD
+=======
+    /* margin-bottom: 60px; */
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
 	padding: 0;
     background-color:#515154 !important ;
 }

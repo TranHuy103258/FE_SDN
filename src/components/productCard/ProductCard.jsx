@@ -12,6 +12,7 @@ const ProductCard = () => {
                 <a class="sanpham" href="SanPham.html" title="">
                     <div class="khoi6">
                         <div class="anh6">
+<<<<<<< HEAD
                             <img src="img/5.jpg" alt="" />
                         </div>
                         <div class="anh6_2">
@@ -19,6 +20,15 @@ const ProductCard = () => {
                         </div>
 
                         <p class="tensanpham">Iphone 13</p>
+=======
+                            <img src="img/13.jpg" alt="" />
+                        </div>
+                        <div class="anh6_2">
+                            <img src="img/14.jpg" alt="" />
+                        </div>
+
+                        <p class="tensanpham">Iphone 15 Pro Max 256GB</p>
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
                         <div class="gia">
                             <p class="giagiam">14.450.000 ₫</p>
                             <p class="giabandau">24.990.000 ₫</p>
@@ -33,6 +43,7 @@ const ProductCard = () => {
                 <a class="sanpham" href="SanPham.html" title="">
                     <div class="khoi6">
                         <div class="anh6">
+<<<<<<< HEAD
                             <img src="img/5.jpg" alt="" />
                         </div>
                         <div class="anh6_2">
@@ -40,6 +51,15 @@ const ProductCard = () => {
                         </div>
 
                         <p class="tensanpham">Iphone 13</p>
+=======
+                            <img src="img/13.jpg" alt="" />
+                        </div>
+                        <div class="anh6_2">
+                            <img src="img/14.jpg" alt="" />
+                        </div>
+
+                        <p class="tensanpham">Iphone 15 Pro Max 256GB</p>
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
                         <div class="gia">
                             <p class="giagiam">14.450.000 ₫</p>
                             <p class="giabandau">24.990.000 ₫</p>
@@ -50,10 +70,15 @@ const ProductCard = () => {
                 </a>
             </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
             <div class="col-xl-3">
                 <a class="sanpham" href="SanPham.html" title="">
                     <div class="khoi6">
                         <div class="anh6">
+<<<<<<< HEAD
                             <img src="img/5.jpg" alt="" />
                         </div>
                         <div class="anh6_2">
@@ -61,6 +86,15 @@ const ProductCard = () => {
                         </div>
 
                         <p class="tensanpham">Iphone 13</p>
+=======
+                            <img src="img/13.jpg" alt="" />
+                        </div>
+                        <div class="anh6_2">
+                            <img src="img/14.jpg" alt="" />
+                        </div>
+
+                        <p class="tensanpham">Iphone 15 Pro Max 256GB</p>
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
                         <div class="gia">
                             <p class="giagiam">14.450.000 ₫</p>
                             <p class="giabandau">24.990.000 ₫</p>
@@ -71,10 +105,15 @@ const ProductCard = () => {
                 </a>
             </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
             <div class="col-xl-3">
                 <a class="sanpham" href="SanPham.html" title="">
                     <div class="khoi6">
                         <div class="anh6">
+<<<<<<< HEAD
                             <img src="img/5.jpg" alt="" />
                         </div>
                         <div class="anh6_2">
@@ -82,6 +121,15 @@ const ProductCard = () => {
                         </div>
 
                         <p class="tensanpham">Iphone 13</p>
+=======
+                            <img src="img/13.jpg" alt="" />
+                        </div>
+                        <div class="anh6_2">
+                            <img src="img/14.jpg" alt="" />
+                        </div>
+
+                        <p class="tensanpham">Iphone 15 Pro Max 256GB</p>
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
                         <div class="gia">
                             <p class="giagiam">14.450.000 ₫</p>
                             <p class="giabandau">24.990.000 ₫</p>
@@ -92,6 +140,11 @@ const ProductCard = () => {
                 </a>
             </div>
 
+<<<<<<< HEAD
+=======
+          
+
+>>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
 
 
 
