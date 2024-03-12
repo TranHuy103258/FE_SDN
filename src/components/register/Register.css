@@ -67,19 +67,11 @@ a.trangchu {
 a.trangchu i {
 	margin-right: 10px;
 }
-<<<<<<< HEAD
-p.gioitinh input{
-	width: 20px;
-	height: 20px;
-}
-p.gioitinh {
-=======
 p.radio input{
 	width: 20px;
 	height: 20px;
 }
 p.radio {
->>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
 	font-size: 18px;
     display: flex;
     align-items: center;

@@ -19,11 +19,7 @@ const Register = () => {
                             Tên:<br/>
                             <input type="text" name="ten" placeholder="Tên"/>
                         </p> 
-<<<<<<< HEAD
-                        <p class="gioitinh">
-=======
                         <p class="radio">
->>>>>>> 9d86f4d92df75cff724a2d295bb45246f72ad434
                             <b style={{fontWeight:"500",color:'black'}}>Giới tính:</b>
                             <input type="radio" name="gioitinh"  value="1" /> Nữ
                             <input type="radio" name="gioitinh"  value="0"/> Nam

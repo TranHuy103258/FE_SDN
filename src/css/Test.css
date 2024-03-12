@@ -1,4 +1,4 @@
-.khoi1 {
+.khoi {
 	background: black;
 }
 .khoi {
@@ -10,13 +10,12 @@
 .khoitrai {
     display: flex;
     color:white;
-   	margin: 10px 0px;
+   	margin: 10px 20px;
    	
 } 
 .khoiphai {
 	display: flex;
 	margin: 10px 0px;
-    justify-content: flex-end;
 
 }
 
@@ -49,31 +48,15 @@
 
 
 /* hết khối 1 */
-
-nav.khoi2 {
-    /* margin-bottom: 60px; */
-	padding: 0;
-    background-color:#515154 !important ;
-}
-a.navbar-brand {
-	padding: 0;
-}
-
-a.navbar-brand img{
-    margin: 10px;
-    width: 160px;
-    height: 50px;
-}
-#navbarNavDropdown{
-	justify-content: space-between;
-	font-size: 20px;
-}
 .icon  {
 	position: relative;
 	display: flex;
-	
+	margin-left: 470px;
 }
-
+#navbarNavDropdown{
+	justify-content: space-evenly;
+	font-size: 20px;
+}
 .icon1 {
 	margin: 15px;
 	position: relative;
@@ -92,8 +75,7 @@ a.navbar-brand img{
     top: -7px;
     right: -7px;
 }
-i.khoi2 {
-    color:#ffffffb0;
+.icon i {
 	cursor: pointer;
 }
 
@@ -108,7 +90,6 @@ a#navbarDropdownMenuLink:hover i{
 	transform: rotate(180deg);
 }
 a#navbarDropdownMenuLink{
-    color:white;
 	position: relative;
 	overflow: hidden;
 }
@@ -116,28 +97,16 @@ a#navbarDropdownMenuLink .thanhchay{
 	position: absolute;
 	bottom: 0;
 	left: 0;
-    z-index: 4;
 	width: 100%;
 	height: 2px;
-	background:white;
+	background: black;
 	opacity:0 ;
 }
-
-li.nav-item.dropdown {
-    padding:10px;
-}
-li.nav-item:hover {
-    background-color:gray ;
-}
 ul.dropdown-menu {
-    left:0px;
-    top:60px;
 	border: none;
 }
 
-
-
-a.dropdown-item {
+li a.dropdown-item {
 	background: white;
 	border-bottom: 1px solid #ECF0F1;
 	opacity: 0.85;
@@ -148,55 +117,6 @@ a#navbarDropdownMenuLink:hover  .thanhchay{
 	animation: divao 1s forwards;
 	opacity: 1;
 }
-
-
-div.login{
-	display: none;
-	    font-size: 15px;
-	    font-weight: 500;
-	position: absolute;
-	top: 48px;
-	margin: 0;
-	width: 250px;
-	left: -105px;
-	z-index: 3;
-	border: 1px solid #CCCCCC;
-	box-shadow: 1px 2px 3px;
-	background: white;
-    
-}
-
-.show1{
-    display:block !important;
-}
-
-a.login {
-    text-decoration: none !important;
-    color:black !important;
-}
-
-
-div.ls_title {
-	text-align: center;
-	border-bottom: 1px solid #CCCCCC;
-	padding: 10px;
-	margin: 5px 15px;
-}
-
-div.vuong {
-	display: none;
-	width: 25px;
-    height: 25px;
-    background: white;
-    position: absolute;
-    top: 35px;
-    left:-3px;
-    transform: rotate(45deg);
-    border: 1px solid #CCCCCC;
-    box-shadow: 1px 2px 3px;
-    z-index: 2;
-}
-
 /* .chay1{
 	animation: divao 1s forwards;
 	opacity: 1 !important;
@@ -221,7 +141,7 @@ div.vuong {
 }
 
 .menuchay2_1{
-	position: fixed !important;
+	position: fixed;
 	top: 0;
 	right: 0;
 	z-index: 3;
@@ -231,7 +151,7 @@ div.vuong {
 
 
 .menuchay2_2{
-	position: fixed !important;
+	position: fixed;
 	top: 0;
 	right: 0;
 	z-index: 3;
@@ -239,7 +159,7 @@ div.vuong {
 	animation: menuchay2_2 0.5s forwards;
 }
 @-webkit-Keyframes menuchay2_1 {
-	from {transform:translateY(-100%);opacity:0;}
+	from {transform:translateY(-100%) ;opacity: 0;}
 	to {transform:translateY(0) ;opacity: 1;}
 	
 }
@@ -249,4 +169,50 @@ div.vuong {
 	
 }
 
-
+nav.khoi2 {
+	padding: 0;
+}
+a.navbar-brand {
+	padding: 0;
+}
+div.login_success {
+	display: none;
+	    font-size: 15px;
+	    font-weight: 500;
+	position: absolute;
+	top: 65px;
+	margin: 0;
+	width: 250px;
+	left: -90px;
+	z-index: 2;
+	border: 1px solid #CCCCCC;
+	box-shadow: 1px 2px 3px;
+	background: white;
+}
+div.ls_title {
+	text-align: center;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
+	margin: 0 15px;
+}
+div.username {
+	margin: 10px 0px 10px 13px;
+}
+div.vuong {
+	display: none;
+	width: 25px;
+    height: 25px;
+    background: white;
+    position: absolute;
+    top: 56px;
+    left: 11px;
+    transform: rotate(45deg);
+    border: 1px solid #CCCCCC;
+    box-shadow: 1px 2px 3px;
+    z-index: 1;
+}
+.login_success ul li a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
