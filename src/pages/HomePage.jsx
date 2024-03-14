@@ -29,7 +29,7 @@ const HomePage = () => {
                         </a>
                     </div>
                 </div>
-                <ProductCard />
+                <ProductCard category='Iphone' />
                 <ShowAll />
 
                 <div class="row text-center khoi5">
@@ -48,7 +48,7 @@ const HomePage = () => {
                         </a>
                     </div>
                 </div>
-                <ProductCard />
+                <ProductCard category='Ipad'/>
                 <ShowAll />
 
                 <div class="row text-center khoi5">
@@ -67,7 +67,7 @@ const HomePage = () => {
                         </a>
                     </div>
                 </div>
-                <ProductCard />
+                <ProductCard category='Mac Book'/>
                 <ShowAll />
 
                 <div class="row">
