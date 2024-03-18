@@ -11,6 +11,8 @@ import ProductPage from "./pages/ProductPage";
 import AllProduct from "./pages/AllProduct";
 import Dashboard from "./Admin/pages/DashBoard/DashBoard";
 import BlogList from "./Admin/pages/Blog/BlogList";
+import AddBlog from "./Admin/pages/Blog/AddBlog";
+import EditBlog from "./Admin/pages/Blog/EditBlog";
 
 function App() {
   return (
@@ -30,12 +32,10 @@ function App() {
           {/*   <Route path="/product" element={<Products />} />
                 <Route path="/products/:productId" element={<ProductDetail />} /> */}
 
-          <Route path="/admin" element={<Dashboard />}>
-            <Route index element={<Dashboard />} />
-            <Route path="/admin/blog" element={<BlogList />} />
-            <Route path="/admin/songs" element={<Dashboard />} />
-            <Route path="/admin/users" element={<Dashboard />} />
-          </Route>
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/blog" element={<BlogList />} />
+          <Route path="/admin/blog/add" element={<AddBlog />} />
+          <Route path="/admin/blog/edit/:id" element={<EditBlog />} />
         </Routes>
       </BrowserRouter>
     </div>

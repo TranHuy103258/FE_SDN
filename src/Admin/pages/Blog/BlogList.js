@@ -250,6 +250,7 @@ const BlogList = () => {
           ))}
         </tbody>
       </Table>
+
       <Paginate
         currentPage={currentPage}
         totalPages={totalPages}
