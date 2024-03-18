@@ -7,13 +7,12 @@ const AddBlog = () => {
     categoryId: "",
     title: "",
     body: "",
-    image: null, // Thay đổi từ "" sang null để lưu trữ đối tượng file
+    image: "",
   });
 
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // Fetch categories from backend API
     fetchCategories();
   }, []);
 
@@ -34,38 +33,29 @@ const AddBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const formDataToSend = new FormData(); // Tạo đối tượng FormData
 
-      // Thêm dữ liệu từ state vào FormData
+    try {
+      const formDataToSend = new FormData();
       formDataToSend.append("categoryId", formData.categoryId);
       formDataToSend.append("title", formData.title);
       formDataToSend.append("body", formData.body);
-      formDataToSend.append("image", formData.image); // Thêm đối tượng file vào FormData
+      formDataToSend.append("image", formData.image);
 
-      // Gửi yêu cầu POST đến backend API
-      const response = await fetch("http://localhost:9999/blogs/", {
+      const response = await fetch("http://localhost:9999/blogs", {
         method: "POST",
-        body: formDataToSend, // Sử dụng FormData thay vì JSON.stringify(formData)
+        body: formDataToSend,
       });
 
       if (response.ok) {
-        console.log("New blog created successfully!");
-        // Reset form fields
-        setFormData({
-          categoryId: "",
-          title: "",
-          body: "",
-          image: null, // Reset đối tượng file
-        });
-        // Hiển thị cảnh báo khi thêm thành công
-        window.alert("Blog added successfully!");
-        window.location.href = "/admin/blog";
+        alert("Blog added successfully!");
+        handleBlog();
       } else {
-        console.error("Failed to create new blog");
+        console.error("Failed to add blog.");
+        alert("Failed to add blog.");
       }
     } catch (error) {
-      console.error("Error creating new blog:", error);
+      console.error("Error adding blog:", error);
+      alert("An error occurred while adding the blog.");
     }
   };
 
@@ -123,10 +113,10 @@ const AddBlog = () => {
             <Form.Group controlId="image" className="formGroup">
               <Form.Label>Image</Form.Label>
               <Form.Control
-                type="file"
+                type="text"
                 name="image"
                 required
-                onChange={handleImageChange}
+                onChange={handleChange}
               />
             </Form.Group>
 
