@@ -13,6 +13,7 @@ import Dashboard from "./Admin/pages/DashBoard/DashBoard";
 import BlogList from "./Admin/pages/Blog/BlogList";
 import AddBlog from "./Admin/pages/Blog/AddBlog";
 import EditBlog from "./Admin/pages/Blog/EditBlog";
+import BlogDetail from "./Admin/pages/Blog/BlogDetail";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
 
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/blog" element={<BlogList />} />
+          <Route path="/admin/blog/detail/:id" element={<BlogDetail />} />
           <Route path="/admin/blog/add" element={<AddBlog />} />
           <Route path="/admin/blog/edit/:id" element={<EditBlog />} />
         </Routes>

@@ -6,10 +6,17 @@ import { Link } from "react-router-dom";
 const EditBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
-  const [formData, setFormData] = useState({ title: "", body: "", image: "" });
+  const [formData, setFormData] = useState({
+    title: "",
+    body: "",
+    image: "",
+    categoryId: "",
+  });
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetchBlog();
+    fetchCategories();
   }, []);
 
   const fetchBlog = async () => {
@@ -18,9 +25,24 @@ const EditBlog = () => {
       const data = await response.json();
       setBlog(data);
       // Populate form data with current blog data
-      setFormData({ title: data.title, body: data.body, image: data.image });
+      setFormData({
+        title: data.title,
+        body: data.body,
+        image: data.image,
+        categoryId: data.categoryId,
+      });
     } catch (error) {
       console.error("Error fetching blog:", error);
+    }
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch("http://localhost:9999/categories");
+      const data = await response.json();
+      setCategories(data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
     }
   };
 
@@ -43,6 +65,8 @@ const EditBlog = () => {
         throw new Error("Failed to update blog");
       }
       console.log("Blog updated successfully");
+      window.alert("Blog updated successfully!");
+      window.location.href = "/admin/blog";
     } catch (error) {
       console.error("Error updating blog:", error);
     }
@@ -91,6 +115,21 @@ const EditBlog = () => {
                 value={formData.image}
                 onChange={handleChange}
               />
+            </Form.Group>
+            <Form.Group controlId="categoryId">
+              <Form.Label>Category</Form.Label>
+              <Form.Select
+                name="categoryId"
+                value={formData.categoryId}
+                onChange={handleChange}
+              >
+                <option value="">--- Select Category ---</option>
+                {categories.map((category) => (
+                  <option key={category._id} value={category._id}>
+                    {category.name}
+                  </option>
+                ))}
+              </Form.Select>
             </Form.Group>
             <Button variant="primary" type="submit">
               Update Blog

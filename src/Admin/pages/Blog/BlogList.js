@@ -67,7 +67,6 @@ const BlogList = () => {
     const sorted = [...blogs].sort((a, b) => {
       const valueA = getSortValue(a);
       const valueB = getSortValue(b);
-
       if (sortOrder === "asc") {
         return valueA.localeCompare(valueB);
       } else {
@@ -89,7 +88,7 @@ const BlogList = () => {
   };
 
   const getCategoryName = (categoryId) => {
-    const category = categories.find((category) => category.id === categoryId);
+    const category = categories.find((category) => category._id === categoryId);
     return category ? category.name : "";
   };
 
@@ -102,14 +101,6 @@ const BlogList = () => {
     const [key, order] = value.split(":");
     setSortKey(key);
     setSortOrder(order);
-  };
-
-  const handleView = (blogId) => {
-    console.log(`View blog with ID ${blogId}`);
-  };
-
-  const handleEdit = (blogId) => {
-    console.log(`Edit blog with ID ${blogId}`);
   };
 
   const handleDeleteBlog = (blogId) => {
@@ -147,7 +138,11 @@ const BlogList = () => {
   };
 
   const handleAddNewBlog = () => {
-    //window.location.href = "/admin/Addblog";
+    window.location.href = "/admin/blog/add";
+  };
+
+  const handleEdit = (blogId) => {
+    window.location.href = `/admin/blog/edit/${blogId}`;
   };
 
   const handlePageChange = (page) => {
@@ -168,8 +163,9 @@ const BlogList = () => {
 
   return (
     <Col lg={12}>
-      <h3 className="mt-2">Blogs List</h3>
+      <h3 className="mt-2 text-center">Blogs List</h3>
       <Row className="my-4">
+        <Col xs={12} md={1}></Col>
         <Col xs={12} md={3}>
           <Form.Group className="mb-3" controlId="filter">
             <Form.Control
@@ -193,64 +189,74 @@ const BlogList = () => {
             <option value="category:desc">Category (Descending)</option>
           </Form.Select>
         </Col>
-        <Col xs={12} md={2} style={{ textAlign: "right" }}>
+        <Col xs={12} md={3} style={{ textAlign: "right" }}>
           <Button variant="primary" onClick={handleAddNewBlog}>
             Add New Blog
           </Button>
         </Col>
+        <Col xs={12} md={1}></Col>
       </Row>
-      <Table striped bordered hover variant="light">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Thumbnail</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          {blogs.map((blog) => (
-            <tr key={blog.id}>
-              <td>{blog.id}</td>
-              <td>
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-                />
-              </td>
-              <td>{blog.title}</td>
-              <td>{getCategoryName(blog.categoryId)}</td>
-              <td>
-                <Button variant="primary" className="mx-1">
-                  <Link
-                    className="text-white"
-                    to={`/admin/blogdetails/${blog.id}`}
-                  >
-                    View
-                  </Link>
-                </Button>
-                <Button
-                  variant="warning"
-                  className="mx-1"
-                  onClick={() => handleEdit(blog.id)}
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="danger"
-                  className="mx-1"
-                  onClick={() => handleDeleteBlog(blog.id)}
-                >
-                  Delete
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
+      <Row>
+        <Col xs={12} md={1}></Col>
+        <Col xs={12} md={10}>
+          <Table striped bordered hover variant="light">
+            <thead>
+              <tr className="text-center">
+                <th>ID</th>
+                <th>Thumbnail</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              {blogs.map((blog) => (
+                <tr key={blog._id}>
+                  <td>{blog._id}</td>
+                  <td>
+                    <img
+                      src={blog.image}
+                      alt={blog.title}
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  </td>
+                  <td>{blog.title}</td>
+                  <td>{getCategoryName(blog.categoryId)}</td>
+                  <td>
+                    <Button variant="primary" className="mx-1">
+                      <Link
+                        className="text-white"
+                        to={`/admin/blog/detail/${blog._id}`}
+                      >
+                        View
+                      </Link>
+                    </Button>
+                    <Button
+                      variant="warning"
+                      className="mx-1"
+                      onClick={() => handleEdit(blog._id)}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      variant="danger"
+                      className="mx-1"
+                      onClick={() => handleDeleteBlog(blog._id)}
+                    >
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Col>
+        <Col xs={12} md={1}></Col>
+      </Row>
       <Paginate
         currentPage={currentPage}
         totalPages={totalPages}
