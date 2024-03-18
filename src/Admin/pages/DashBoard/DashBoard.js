@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineFall, AiOutlineRise } from "react-icons/ai";
-import { Line, Pie, DualAxes } from "@ant-design/plots";
+import { Line, Pie, DualAxes } from "@ant-design/plots"; //npm install antd
 import InputGroup from "react-bootstrap/InputGroup";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
@@ -634,7 +634,7 @@ const DemoPie = (props) => {
     innerRadius: 0.64,
     meta: {
       [spec]: {
-        formatter: (v) => (spec != "quantity" ? `$${v?.toFixed(2)}` : v),
+        formatter: (v) => (spec !== "quantity" ? `$${v?.toFixed(2)}` : v),
       },
     },
     label: {
@@ -658,7 +658,7 @@ const DemoPie = (props) => {
     statistic: {
       title: {
         formatter: (v) =>
-          spec != "quantity"
+          spec !== "quantity"
             ? spec.charAt(0).toUpperCase() + spec.slice(1)
             : "Products sold",
         offsetY: -8,
@@ -725,6 +725,7 @@ const OrderDualAxes = (props) => {
   };
   return <DualAxes {...config} />;
 };
+
 const DemoDualAxes = (props) => {
   const { data } = props;
   const config = {
@@ -764,4 +765,4 @@ const dateArrayByYear = (year) => {
   return arr;
 };
 
-//console.log(dateArrayByYear(2024))
+console.log(dateArrayByYear(2024));

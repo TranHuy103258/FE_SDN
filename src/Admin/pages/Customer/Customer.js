@@ -29,15 +29,12 @@ export default function Customer() {
       setCurrentPage(currentPage + 1);
     }
   };
-  //
 
-  // useEffect(
-  //     () => {
-  //         fetch(`http://localhost:9999/users`)
-  //             .then(res => res.json())
-  //             .then(json => setUsers(json));
-  //     }, []
-  // );
+  useEffect(() => {
+    fetch(`http://localhost:9999/users`)
+      .then((res) => res.json())
+      .then((json) => setUsers(json));
+  }, []);
 
   const handleSearch = (page) => {
     let url = `http://localhost:9999/users/?role=Customer&_sort=id&_order=desc&_page=${page}&_limit=10`;
