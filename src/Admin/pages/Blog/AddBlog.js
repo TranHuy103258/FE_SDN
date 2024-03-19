@@ -7,7 +7,7 @@ const AddBlog = () => {
     categoryId: "",
     title: "",
     body: "",
-    image: "",
+    image: null, // Change to null since it will hold a File object
   });
 
   const [categories, setCategories] = useState([]);
@@ -31,6 +31,11 @@ const AddBlog = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setFormData({ ...formData, image: file }); // Store the File object in state
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -41,7 +46,7 @@ const AddBlog = () => {
       formDataToSend.append("body", formData.body);
       formDataToSend.append("image", formData.image);
 
-      const response = await fetch("http://localhost:9999/blogs", {
+      const response = await fetch("http://localhost:9999/blogs/", {
         method: "POST",
         body: formDataToSend,
       });
@@ -61,11 +66,6 @@ const AddBlog = () => {
 
   const handleBlog = () => {
     window.location.href = "/admin/blog/";
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setFormData({ ...formData, image: file }); // Lưu trữ đối tượng file vào state
   };
 
   return (
@@ -113,10 +113,9 @@ const AddBlog = () => {
             <Form.Group controlId="image" className="formGroup">
               <Form.Label>Image</Form.Label>
               <Form.Control
-                type="text"
+                type="file"
                 name="image"
-                required
-                onChange={handleChange}
+                onChange={handleImageChange} // Use handleImageChange for file input
               />
             </Form.Group>
 

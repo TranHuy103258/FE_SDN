@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table, Image, Row, Col } from "react-bootstrap";
+import { Table, Image, Row, Col, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -32,44 +32,42 @@ const BlogList = () => {
     <div className="blog-list-container mt-4">
       <Row>
         <Col md={3}>
-          <div className="filter-container ">
-            <select onChange={handleCategoryChange} value={selectedCategory}>
+          <div className="filter-container">
+            <Form.Select
+              onChange={handleCategoryChange}
+              value={selectedCategory}
+            >
               <option value="">All Categories</option>
               {categories.map((category) => (
                 <option key={category._id} value={category._id}>
                   {category.name}
                 </option>
               ))}
-            </select>
+            </Form.Select>
           </div>
         </Col>
         <Col md={9}>
-          <div className="blogs-container ">
-            <Table striped bordered hover responsive>
-              <thead>
-                <tr>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredBlogs.map((blog) => (
-                  <tr key={blog._id}>
-                    <td>
-                      <Image
+          <div className="blogs-container">
+            <Row className="text-center">
+              {filteredBlogs.map((blog, index) => (
+                <Col key={blog._id} md={4}>
+                  <Link to={`/blog/${blog._id}`}>
+                    {/* Sử dụng Col với md={4} để hiển thị 3 card trên 1 hàng */}
+                    <Card style={{ width: "18rem", margin: "10px" }}>
+                      <Card.Img
+                        variant="top"
                         src={blog.image}
                         alt={blog.title}
-                        style={{ width: "200px", height: "150px" }} // Cố định kích thước 200x150 pixels
-                        thumbnail
+                        style={{ height: "200px" }}
                       />
-                    </td>
-                    <td>{blog.title}</td>
-                    <Link to={`/blog/${blog._id}`}>View Detail</Link>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
+                      <Card.Body>
+                        <Card.Title>{blog.title}</Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                </Col>
+              ))}
+            </Row>
           </div>
         </Col>
       </Row>
