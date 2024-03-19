@@ -3,17 +3,11 @@ import './ProductCard.css';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-function formatCurrency(number) {
-    // Sử dụng hàm toLocaleString để định dạng số theo định dạng tiền tệ của quốc gia
-    return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-}
+import { formatCurrency, calculateDiscountPercentage } from '../../ultils/function';
 
-function calculateDiscountPercentage(discountPrice, originalPrice) {
-    if (originalPrice === 0) {
-      return 0; // Tránh chia cho 0
-    }
-    return ((originalPrice - discountPrice) / originalPrice) * 100;
-  }
+
+
+
 
 const ProductCard = ({category}) => {
 
@@ -31,7 +25,7 @@ const ProductCard = ({category}) => {
                 { method: "GET" }
             );
             const data = await response.json();
-            console.log(data);
+
             setProduct(data);
 
         } catch (error) {
@@ -45,7 +39,10 @@ const ProductCard = ({category}) => {
         <div class="row k6">
             {Product.map((product, index) => (
                 <div class="col-xl-3">
-                    <Link class="sanpham" to={`/product/${product._id}`}>
+                    <Link class="sanpham" to={{
+                        pathname: `/product/${product._id}`,
+                        search: `?subProductId=${product.subProducts?._id}` // Thêm tham số vào search
+                    }}>
                         <div class="khoi6">
                             <div class="anh6">
                                 <img src="img/13.jpg" alt="" />
@@ -54,11 +51,11 @@ const ProductCard = ({category}) => {
                                 <img src="img/14.jpg" alt="" />
                             </div>
 
-                            <p class="tensanpham">{product.subName}</p>
+                            <p class="tensanpham">{product.subProducts?.subName} </p>
                             <div class="gia">
-                                <p class="giagiam">{formatCurrency(product.discountPrice)}</p>
-                                <p class="giabandau">{formatCurrency(product.price)}</p>
-                                <p class="giabandau">-{calculateDiscountPercentage(product.discountPrice,product.price).toFixed(1)}%</p>
+                                <p class="giagiam">{formatCurrency(product.subProducts?.discountPrice)}</p>
+                                <p class="giabandau">{formatCurrency(product.subProducts?.price)}</p>
+                                <p class="giabandau">-{calculateDiscountPercentage(product.subProducts?.discountPrice,product.subProducts?.price).toFixed(1)}%</p>
 
                             </div>
                         </div>
