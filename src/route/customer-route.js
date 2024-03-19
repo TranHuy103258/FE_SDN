@@ -16,9 +16,6 @@ export function customerRoutes() {
         </AuthorizationRoute>
       </ProtectedRoute>
     ),
-    children: [
-      { path: "/cart", element: <Cart /> },
-      { path: "/profile", element: <UserHome /> },
-    ],
+    children: [{ path: "/cart", element: <Cart /> }],
   };
 }

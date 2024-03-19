@@ -8,6 +8,8 @@ import CartPage from "../pages/CartPage";
 import ProductPage from "../pages/ProductPage";
 import AllProduct from "../pages/AllProduct";
 import HomePage from "../pages/HomePage";
+import ChangePassPage from "../pages/ChangePassPage";
+import UserHomePage from "../pages/UserHomePage";
 
 export function publicRoutes() {
   return {
@@ -15,9 +17,10 @@ export function publicRoutes() {
     element: <Outlet />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "/profile", element: <UserHome /> },
+      { path: "/profile", element: <UserHomePage /> },
       { path: "/register", element: <RegisterPage /> },
       { path: "/login", element: <LoginPage /> },
+      { path: "/change", element: <ChangePassPage /> },
       { path: "/order", element: <OrderPage /> },
       { path: "/orderdetail", element: <OrderDetailPage /> },
       { path: "/cart", element: <CartPage /> },

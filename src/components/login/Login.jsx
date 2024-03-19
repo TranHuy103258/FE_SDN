@@ -30,41 +30,44 @@ const Login = () => {
   });
 
   const login = (email, password) => {
-    fetch(`http://localhost:9999/users/${email}`)
+    fetch("http://localhost:9999/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
       .then((res) => {
-        return res.json();
+        if (res.ok) {
+          return res.json();
+        } else if (res.status === 400) {
+          throw new Error("Invalid Email/Password");
+        } else if (res.status === 404) {
+          throw new Error("User not registered");
+        } else if (res.status === 401) {
+          throw new Error("Email/Password not valid");
+        } else {
+          throw new Error("Login failed: " + res.statusText);
+        }
       })
-      // gán vào biến resp
       .then((resp) => {
         console.log(resp);
-        if (Object.keys(resp).length === 0) {
-          toast.error("Please enter valid email");
-        } else {
-          if (!hashCode().verifyCode(password, resp.password)) {
-            setTimeout(() => {
-              window.alert("Wrong password");
-            }, 5);
-          } else {
-            setTimeout(() => {
-              window.alert("login successfully");
-            }, 5);
-
-            // Store accessToken and refreshToken in sessionStorage
-            sessionStorage.setItem("accessToken", resp.accessToken);
-            sessionStorage.setItem("refreshToken", resp.refreshToken);
-
-            const data = {
-              email: email,
-              name: resp.name,
-              role: resp.role,
-            };
-            sessionStorage.setItem("data", JSON.stringify(data));
-            navigate("/");
-          }
+        // Handle response here
+        if (resp.accessToken && resp.refreshToken) {
+          // Store accessToken and refreshToken in sessionStorage
+          const data = {
+            email: email,
+            name: resp.name,
+            role: resp.role,
+          };
+          sessionStorage.setItem("data", JSON.stringify(data));
+          navigate("/");
+          window.alert("Login successfully");
         }
       })
       .catch((err) => {
-        toast.error("Login failed: " + err.message);
+        console.error("Login failed: " + err.message);
+        window.alert("Login failed: " + err.message);
       });
   };
 

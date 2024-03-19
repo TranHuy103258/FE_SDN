@@ -332,6 +332,11 @@ const Header = () => {
                   <div class="vuong"></div>
                   <div class="login">
                     <div class="ls_title">
+                      <a class="login" href="/admin/blog">
+                        Quản lý blogs
+                      </a>
+                    </div>
+                    <div class="ls_title">
                       <a class="login" href="/profile">
                         {thisUser?.name}
                       </a>
@@ -341,11 +346,15 @@ const Header = () => {
                         Logout
                       </Link>
                     </div>
+                    <div class="ls_title">
+                      <a class="login" href="/change">
+                        Đổi mật khẩu
+                      </a>
+                    </div>
                   </div>
                   <i class="fa-regular fa-user khoi2"></i>
                 </div>
               )}
-
               <div class="icon1">
                 <div class="khoiden2">6</div>
                 <i class="fa-solid fa-cart-shopping khoi2"></i>
