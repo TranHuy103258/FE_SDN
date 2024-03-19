@@ -44,6 +44,10 @@ const Login = () => {
             window.alert("Wrong password");
           } else {
             window.alert("login successfully");
+            // Store accessToken and refreshToken in sessionStorage
+            sessionStorage.setItem("accessToken", resp.accessToken);
+            sessionStorage.setItem("refreshToken", resp.refreshToken);
+
             const data = {
               email: email,
               name: resp.name,

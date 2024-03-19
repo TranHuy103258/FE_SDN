@@ -1,8 +1,32 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { React, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./Header.css";
+import { useAuthentication } from "../../auth/use-authentication";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const { isLogged } = useAuthentication();
+  const [thisUser, setThisUser] = useState();
+  const { currentUser } = useAuthentication();
+
+  useEffect(() => {
+    if (isLogged) {
+      fetch(
+        "http://localhost:9999/users/" +
+          JSON.parse(sessionStorage.getItem("data")).email
+      )
+        .then((res) => res.json())
+        .then((json) => setThisUser(json));
+    }
+  }, [isLogged]);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("data");
+    window.alert("Successfully logged out!");
+    navigate("/login");
+  };
+
   useEffect(() => {
     function handleDropdown() {
       var pt1 = document.querySelectorAll("a#navbarDropdownMenuLink");
@@ -285,23 +309,42 @@ const Header = () => {
               <div class="icon1">
                 <i class="fa-solid fa-magnifying-glass khoi2"></i>
               </div>
-
-              <div class="icon1 user">
-                <div class="vuong"></div>
-                <div class="login">
-                  <div class="ls_title">
-                    <a class="login" href="/register">
-                      Tạo tài khoản ngay
-                    </a>
+              {!isLogged && (
+                <div class="icon1 user">
+                  <div class="vuong"></div>
+                  <div class="login">
+                    <div class="ls_title">
+                      <a class="login" href="/register">
+                        Tạo tài khoản ngay
+                      </a>
+                    </div>
+                    <div class="ls_title">
+                      <a class="login" href="/login">
+                        Đăng Nhập
+                      </a>
+                    </div>
                   </div>
-                  <div class="ls_title">
-                    <a class="login" href="/login">
-                      Đăng Nhập
-                    </a>
-                  </div>
+                  <i class="fa-regular fa-user khoi2"></i>
                 </div>
-                <i class="fa-regular fa-user khoi2"></i>
-              </div>
+              )}
+              {isLogged && (
+                <div class="icon1 user">
+                  <div class="vuong"></div>
+                  <div class="login">
+                    <div class="ls_title">
+                      <a class="login" href="/">
+                        {thisUser?.name}
+                      </a>
+                    </div>
+                    <div class="ls_title">
+                      <Link onClick={() => handleLogout()} class="login">
+                        Logout
+                      </Link>
+                    </div>
+                  </div>
+                  <i class="fa-regular fa-user khoi2"></i>
+                </div>
+              )}
 
               <div class="icon1">
                 <div class="khoiden2">6</div>

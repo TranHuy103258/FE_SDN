@@ -13,13 +13,14 @@ const Register = () => {
   const handleRegister = async (event) => {
     event.preventDefault();
 
+    // Extract user registration data
     const name = event.target.name.value;
     const mobile = event.target.mobile.value;
     const date = event.target.date.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    // mã hóa
+    // Encrypt password
     const hashedPassword = hash(password);
 
     const newUser = {
@@ -32,20 +33,25 @@ const Register = () => {
     };
 
     try {
-      // Gửi yêu cầu đến back-end bằng phương thức POST
+      // Send registration request to backend
       const response = await fetch("http://localhost:9999/users", {
-        method: "POST", // Sử dụng phương thức POST
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newUser),
       });
-      if (response.ok) {
-        console.log(response.data);
 
+      if (response.ok) {
+        // Extract accessToken from the response
+        const { accessToken } = await response.json();
+
+        // Set accessToken in sessionStorage
+        sessionStorage.setItem("accessToken", accessToken);
+
+        // Alert success message and redirect to login page
         alert("Đăng ký thành công!");
         navigate("/login");
-        // Các xử lý khác sau khi đăng ký thành công
       } else {
         throw new Error("Đăng ký thất bại.");
       }
