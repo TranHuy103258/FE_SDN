@@ -332,7 +332,7 @@ const Header = () => {
                   <div class="vuong"></div>
                   <div class="login">
                     <div class="ls_title">
-                      <a class="login" href="/">
+                      <a class="login" href="/profile">
                         {thisUser?.name}
                       </a>
                     </div>

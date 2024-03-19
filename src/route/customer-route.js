@@ -3,6 +3,7 @@ import { AuthorizationRoute } from "./authorization-route";
 import { ProtectedRoute } from "./protected-route";
 import Cart from "../components/cart/Cart";
 import ErrorPage from "../pages/Error/errorPage";
+import UserHome from "../components/userHome/UserHome";
 
 export function customerRoutes() {
   return {
@@ -10,11 +11,14 @@ export function customerRoutes() {
     errorElement: <ErrorPage />,
     element: (
       <ProtectedRoute>
-        <AuthorizationRoute roles={["Customer"]}>
+        <AuthorizationRoute roles={["user"]}>
           <Outlet />
         </AuthorizationRoute>
       </ProtectedRoute>
     ),
-    children: [{ path: "/cart", element: <Cart /> }],
+    children: [
+      { path: "/cart", element: <Cart /> },
+      { path: "/profile", element: <UserHome /> },
+    ],
   };
 }
