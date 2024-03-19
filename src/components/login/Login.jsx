@@ -41,9 +41,14 @@ const Login = () => {
           toast.error("Please enter valid email");
         } else {
           if (!hashCode().verifyCode(password, resp.password)) {
-            window.alert("Wrong password");
+            setTimeout(() => {
+              window.alert("Wrong password");
+            }, 5);
           } else {
-            window.alert("login successfully");
+            setTimeout(() => {
+              window.alert("login successfully");
+            }, 5);
+
             // Store accessToken and refreshToken in sessionStorage
             sessionStorage.setItem("accessToken", resp.accessToken);
             sessionStorage.setItem("refreshToken", resp.refreshToken);

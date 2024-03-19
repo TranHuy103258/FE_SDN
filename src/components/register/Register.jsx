@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import * as bcrypt from "bcryptjs";
+import { PASSWORD_SECRET } from "../../auth/passwordSecret";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [refreshToken, setRefreshToken] = useState("");
+  const [accessToken, setAccessToken] = useState("");
 
   const hash = (password) => {
-    return bcrypt.hashSync(password, 10);
+    return bcrypt.hashSync(password, parseInt(PASSWORD_SECRET));
   };
 
   const handleRegister = async (event) => {
@@ -16,7 +19,7 @@ const Register = () => {
     // Extract user registration data
     const name = event.target.name.value;
     const mobile = event.target.mobile.value;
-    const date = event.target.date.value;
+    // const date = event.target.date.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
@@ -26,7 +29,7 @@ const Register = () => {
     const newUser = {
       name,
       phone: mobile,
-      date,
+      //   date,
       email,
       password: hashedPassword,
       role: "user",
@@ -34,7 +37,7 @@ const Register = () => {
 
     try {
       // Send registration request to backend
-      const response = await fetch("http://localhost:9999/users", {
+      const response = await fetch("http://localhost:9999/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,17 +45,24 @@ const Register = () => {
         body: JSON.stringify(newUser),
       });
 
-      if (response.ok) {
-        // Extract accessToken from the response
-        const { accessToken } = await response.json();
+      //   fetch("http://localhost:9999/register").then((resAccess) => {
+      //     console.log(resAccess);
+      //     setAccessToken(resAccess);
+      //     setRefreshToken(resAccess);
+      //   });
 
-        // Set accessToken in sessionStorage
-        sessionStorage.setItem("accessToken", accessToken);
+      if (response.ok) {
+        //     // Extract accessToken from the response
+        //     const { accessToken } = await response.json();
+
+        //     // Set accessToken in sessionStorage
+        //     sessionStorage.setItem("accessToken", accessToken);
 
         // Alert success message and redirect to login page
-        alert("Đăng ký thành công!");
+        window.alert("Đăng ký thành công!");
         navigate("/login");
       } else {
+        console.log(newUser);
         throw new Error("Đăng ký thất bại.");
       }
     } catch (error) {
@@ -77,18 +87,14 @@ const Register = () => {
             <p className="input">
               Tên hiển thị trên web
               <br />
-              <input type="text" name="username" placeholder="Name" />
+              <input type="text" name="name" placeholder="Name" />
             </p>
             <p className="input">
               Số điện thoại
               <br />
               <input type="tel" name="mobile" placeholder="Số điện thoại" />
             </p>
-            <p className="input">
-              Ngày sinh:
-              <br />
-              <input type="date" name="date" />
-            </p>
+
             <p className="input">
               Email:
               <br />
