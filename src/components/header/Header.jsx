@@ -6,12 +6,11 @@ import { useAuthentication } from "../../auth/use-authentication";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { isLogged } = useAuthentication();
+  const { isLogged, currentUser, isAdmin } = useAuthentication();
   const [thisUser, setThisUser] = useState();
-  const { currentUser } = useAuthentication();
 
   useEffect(() => {
-    if (isLogged) {
+    if (isLogged || isAdmin) {
       fetch(
         "http://localhost:9999/users/" +
           JSON.parse(sessionStorage.getItem("data")).email
@@ -19,7 +18,11 @@ const Header = () => {
         .then((res) => res.json())
         .then((json) => setThisUser(json));
     }
-  }, [isLogged]);
+  }, [isLogged, isAdmin]);
+
+  const handleBlog = () => {
+    window.location.href = `/admin/blog`;
+  };
 
   const handleLogout = () => {
     sessionStorage.removeItem("data");
@@ -331,11 +334,13 @@ const Header = () => {
                 <div class="icon1 user">
                   <div class="vuong"></div>
                   <div class="login">
-                    <div class="ls_title">
-                      <a class="login" href="/admin/blog">
-                        Quản lý blogs
-                      </a>
-                    </div>
+                    {thisUser?.role === "Admin" && (
+                      <div class="ls_title">
+                        <Link class="login" onClick={handleBlog}>
+                          Quản lý blogs
+                        </Link>
+                      </div>
+                    )}
                     <div class="ls_title">
                       <a class="login" href="/profile">
                         {thisUser?.name}
