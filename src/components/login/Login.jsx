@@ -7,6 +7,7 @@ import { hashCode } from "../../auth/hashPassword";
 import { Row, Col } from "react-bootstrap";
 
 const loginSchema = yup.object({
+  // Xác thực dữ liệu đầu vào
   email: yup
     .string()
     .email("Please enter a valid email")
@@ -24,8 +25,6 @@ const Login = () => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      console.log(values);
-      console.log(values.password);
       login(values.email, values.password);
     },
   });
@@ -35,23 +34,23 @@ const Login = () => {
       .then((res) => {
         return res.json();
       })
+      // gán vào biến resp
       .then((resp) => {
         console.log(resp);
         if (Object.keys(resp).length === 0) {
           toast.error("Please enter valid email");
         } else {
-          if (hashCode().verifyCode(password, resp.password)) {
-            toast.success("Successfully logged in");
+          if (!hashCode().verifyCode(password, resp.password)) {
+            window.alert("Wrong password");
+          } else {
             window.alert("login successfully");
             const data = {
               email: email,
-              role: resp.role,
               name: resp.name,
+              role: resp.role,
             };
             sessionStorage.setItem("data", JSON.stringify(data));
             navigate("/");
-          } else {
-            toast.error("Wrong password");
           }
         }
       })
@@ -84,6 +83,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
+                    required
                     onChange={formik.handleChange("email")}
                     onBlur={formik.handleBlur("email")}
                     value={formik.value?.email}
@@ -97,6 +97,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="Mật Khẩu"
+                    required
                     onChange={formik.handleChange("password")}
                     onBlur={formik.handleBlur("password")}
                     value={formik.value?.password}
@@ -110,15 +111,14 @@ const Login = () => {
                     </button>
                   </div>
                 </div>
-
-                <div class="text" style={{ textAlign: "left" }}>
-                  Bạn Chưa Có Tài Khoản ?{" "}
-                  <a href="/register">Tạo tài khoản ngay</a>
-                  <br />
-                  Bạn quên mật khẩu? <a href="">Khôi phục mật khẩu</a>
-                </div>
-                {/* <p style="text-align: center;color: red;font-size: 20px;font-weight: bold">${requestScope.error}</p> */}
               </form>
+              <div class="text" style={{ textAlign: "left" }}>
+                Bạn Chưa Có Tài Khoản ?{" "}
+                <a href="/register">Tạo tài khoản ngay</a>
+                <br />
+                Bạn quên mật khẩu? <a href="">Khôi phục mật khẩu</a>
+              </div>
+              {/* <p style="text-align: center;color: red;font-size: 20px;font-weight: bold">${requestScope.error}</p> */}
             </div>
           </Col>
         </Row>

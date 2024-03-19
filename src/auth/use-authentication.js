@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+// Custom hook - quản lí trạng thái dăng nhập
 export function useAuthentication() {
   const navigate = useNavigate();
   // Chuyển đổi đối tượng json thành 1 đối tượng javascript
