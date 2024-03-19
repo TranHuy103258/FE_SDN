@@ -1,24 +1,22 @@
-import React from 'react';
-import './ProductCard.css';
-import { useState, useEffect } from 'react';
+import React from "react";
+import "./ProductCard.css";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function formatCurrency(number) {
     // Sử dụng hàm toLocaleString để định dạng số theo định dạng tiền tệ của quốc gia
-    return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    return number.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
 }
 
 function calculateDiscountPercentage(discountPrice, originalPrice) {
     if (originalPrice === 0) {
-      return 0; // Tránh chia cho 0
+        return 0; // Tránh chia cho 0
     }
     return ((originalPrice - discountPrice) / originalPrice) * 100;
-  }
+}
 
-const ProductCard = ({category}) => {
-
+const ProductCard = ({ category }) => {
     const [Product, setProduct] = useState([]);
-
 
     useEffect(() => {
         fetchData(); // Gọi API khi giá trị tham số thay đổi
@@ -26,20 +24,14 @@ const ProductCard = ({category}) => {
 
     async function fetchData() {
         try {
-            const response = await fetch(
-                `http://localhost:9999/products?category=${category}`,
-                { method: "GET" }
-            );
+            const response = await fetch(`http://localhost:9999/products?category=${category}`, { method: "GET" });
             const data = await response.json();
             console.log(data);
             setProduct(data);
-
         } catch (error) {
             console.log("Lỗi:", error);
         }
     }
-
-
 
     return (
         <div class="row k6">
@@ -58,22 +50,15 @@ const ProductCard = ({category}) => {
                             <div class="gia">
                                 <p class="giagiam">{formatCurrency(product.discountPrice)}</p>
                                 <p class="giabandau">{formatCurrency(product.price)}</p>
-                                <p class="giabandau">-{calculateDiscountPercentage(product.discountPrice,product.price).toFixed(1)}%</p>
-
+                                <p class="giabandau">
+                                    -{calculateDiscountPercentage(product.discountPrice, product.price).toFixed(1)}%
+                                </p>
                             </div>
                         </div>
                     </Link>
                 </div>
             ))}
-
-
-
-
-
-
-
         </div>
-
     );
 };
 
