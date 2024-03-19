@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Header.css";
+// import logo from '../../../public/img/3.jpg';
 
 const Header = () => {
     useEffect(() => {
@@ -8,11 +9,11 @@ const Header = () => {
             var pt1 = document.querySelectorAll("a#navbarDropdownMenuLink");
             var pt2 = document.querySelectorAll("ul.dropdown-menu");
             var d2 = document.querySelectorAll("div.icon1.user");
-            console.log(d2[0]);
+       
 
             var pt4 = document.querySelectorAll("div.vuong");
             var pt5 = document.querySelectorAll("div.login");
-            console.log(pt4[0]);
+        
 
             var d1 = document.querySelectorAll("li.nav-item.dropdown");
 
@@ -54,11 +55,11 @@ const Header = () => {
             var trangthaimenu = "duoimenu";
             var menu = document.querySelector("nav.khoi2");
             var vitrimenu = menu.offsetTop;
-            console.log(vitrimenu);
+            // console.log(vitrimenu);
             var i = -1;
 
             window.addEventListener("scroll", function () {
-                console.log(window.pageYOffset);
+                // console.log(window.pageYOffset);
                 if (window.pageYOffset > vitrimenu) {
                     if (window.pageYOffset > i) {
                         i = window.pageYOffset;
@@ -70,7 +71,7 @@ const Header = () => {
                         menu.classList.remove("menuchay2_2");
                     }
                 } else if (window.pageYOffset < vitrimenu) {
-                    console.log("dưới menu");
+   
                     trangthaimenu = "duoimenu";
                     menu.classList.remove("menuchay2_1");
                 }
@@ -108,7 +109,7 @@ const Header = () => {
             <nav class="navbar navbar-expand-lg navbar-light bg-light khoi2">
                 <div class="container">
                     <a class="navbar-brand" href="/">
-                        <img src="img/3.png" alt="" />
+                        <img src="/img/3.png" alt="" />
                     </a>
 
                     <button
