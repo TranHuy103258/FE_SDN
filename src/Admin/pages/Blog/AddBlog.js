@@ -44,7 +44,7 @@ const AddBlog = () => {
       formDataToSend.append("categoryId", formData.categoryId);
       formDataToSend.append("title", formData.title);
       formDataToSend.append("body", formData.body);
-      formDataToSend.append("image", formData.image);
+      formDataToSend.append("images", formData.image); // Use "images" instead of "image"
 
       const response = await fetch("http://localhost:9999/blogs/", {
         method: "POST",

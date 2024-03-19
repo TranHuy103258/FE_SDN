@@ -6,14 +6,14 @@ import { toast } from "react-toastify";
 import { hashCode } from "../../auth/hashPassword";
 import { Row, Col } from "react-bootstrap";
 
-const loginSchema = yup.object({
-  // Xác thực dữ liệu đầu vào
-  email: yup
-    .string()
-    .email("Please enter a valid email")
-    .required("This field is required"),
-  password: yup.string().required("This field is required"),
-});
+// const loginSchema = yup.object({
+//   // Xác thực dữ liệu đầu vào
+//   email: yup
+//     .string()
+//     .email("Please enter a valid email")
+//     .required("This field is required"),
+//   password: yup.string().required("This field is required"),
+// });
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Login = () => {
       email: "",
       password: "",
     },
-    validationSchema: loginSchema,
+    // validationSchema: loginSchema,
     onSubmit: (values) => {
       login(values.email, values.password);
     },
@@ -72,23 +72,23 @@ const Login = () => {
   };
 
   return (
-    <div class="container-fluid">
-      <div class="row dangnhap">
+    <div className="container-fluid">
+      <div className="row dangnhap">
         <Row>
           <Col>
-            <div class="col-xl-6 ">
+            <div className="col-xl-6 ">
               <img src="img/12.jpg" />
             </div>
           </Col>
           <Col>
-            <div class="col-xl-6 dn">
+            <div className="col-xl-6 dn">
               <form
                 action="Login"
                 method="POST"
                 accept-charset="utf-8"
                 onSubmit={formik.handleSubmit}
               >
-                <p class="input">
+                <p className="input">
                   Tên đăng nhập:
                   <br />
                   <input
@@ -102,7 +102,7 @@ const Login = () => {
                     errMes={formik.touched.email && formik.errors.email}
                   />
                 </p>
-                <p class="input">
+                <p className="input">
                   Mật Khẩu:
                   <br />
                   <input
@@ -116,15 +116,15 @@ const Login = () => {
                     errMes={formik.touched.password && formik.errors.password}
                   />
                 </p>
-                <div class="submit_wrapper">
-                  <div class="submit dn1">
-                    <button class="dn1" type="submit">
+                <div className="submit_wrapper">
+                  <div className="submit dn1">
+                    <button className="dn1" type="submit">
                       Đăng Nhập
                     </button>
                   </div>
                 </div>
               </form>
-              <div class="text" style={{ textAlign: "left" }}>
+              <div className="text" style={{ textAlign: "left" }}>
                 Bạn Chưa Có Tài Khoản ?{" "}
                 <a href="/register">Tạo tài khoản ngay</a>
                 <br />

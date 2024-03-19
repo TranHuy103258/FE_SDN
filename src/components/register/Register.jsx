@@ -36,7 +36,22 @@ const Register = () => {
     };
 
     try {
-      // Send registration request to backend
+      // // Check if the email already exists
+      // const emailCheckResponse = await fetch(
+      //   "http://localhost:9999/users?email=" + newUser.email
+      // );
+      // if (emailCheckResponse.ok) {
+      //   const existingUser = await emailCheckResponse.json();
+      //   if (existingUser) {
+      //     // If the user with the email already exists, show an alert
+      //     window.alert("Email đã tồn tại. Vui lòng sử dụng email khác.");
+      //     return; // Exit the registration process
+      //   }
+      // } else {
+      //   throw new Error("Failed to check email existence.");
+      // }
+
+      // If the email doesn't exist, proceed with registration
       const response = await fetch("http://localhost:9999/register", {
         method: "POST",
         headers: {
@@ -45,20 +60,7 @@ const Register = () => {
         body: JSON.stringify(newUser),
       });
 
-      //   fetch("http://localhost:9999/register").then((resAccess) => {
-      //     console.log(resAccess);
-      //     setAccessToken(resAccess);
-      //     setRefreshToken(resAccess);
-      //   });
-
       if (response.ok) {
-        //     // Extract accessToken from the response
-        //     const { accessToken } = await response.json();
-
-        //     // Set accessToken in sessionStorage
-        //     sessionStorage.setItem("accessToken", accessToken);
-
-        // Alert success message and redirect to login page
         window.alert("Đăng ký thành công!");
         navigate("/login");
       } else {
