@@ -7,7 +7,7 @@ const Footer = () => {
                 <div class="row k15">
                     <div class="col-xl-4 khoi15">
                         <div class="logo15">
-                            <img src="img/3.png" alt="" />
+                            <img src="/img/3.png" alt="" />
                         </div>
                         <p class="khoi15">
                         Năm 2020, ShopDunk trở thành đại lý ủy quyền của Apple. Chúng tôi phát triển chuỗi cửa hàng 
