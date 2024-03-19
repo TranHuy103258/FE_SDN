@@ -17,6 +17,7 @@ import ErrorPage from "../pages/Error/errorPage.js";
 import Error404Page from "../pages/Error/error404.js";
 import Error403Page from "../pages/Error/error403.js";
 import DefaultAdminLayout from "../Admin/layouts/DefaultAdminLayout.js";
+import Customer from "../Admin/pages/Customer/Customer.js";
 
 const allRoutes = createBrowserRouter([
   {
@@ -24,15 +25,16 @@ const allRoutes = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: (
       <ProtectedRoute>
-        <AuthorizationRoute roles={["Admin"]}>
-          <DefaultAdminLayout>
-            <Outlet />
-          </DefaultAdminLayout>
-        </AuthorizationRoute>
+        <DefaultAdminLayout>
+          <Outlet />
+        </DefaultAdminLayout>
       </ProtectedRoute>
     ),
     children: [
       { index: true, element: <Navigate to={"/admin"} /> },
+
+      // user
+      { path: "/admin/user", element: <Customer /> },
       // blogs
       { path: "/admin/blog", element: <BlogList /> },
       { path: "/admin/blog/detail/:id", element: <BlogDetail /> },

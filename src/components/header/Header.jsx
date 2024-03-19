@@ -344,7 +344,7 @@ const Header = () => {
                     {thisUser?.role === "Admin" && (
                       <div class="ls_title">
                         <Link className="login" onClick={handleBlog}>
-                          Quản lý blogs
+                          Quản lý
                         </Link>
                       </div>
                     )}

@@ -37,7 +37,7 @@ export default function Customer() {
   }, []);
 
   const handleSearch = (page) => {
-    let url = `http://localhost:9999/users/?role=Customer&_sort=id&_order=desc&_page=${page}&_limit=10`;
+    let url = `http://localhost:9999/users/?role=user&_sort=id&_order=desc&_page=${page}&_limit=10`;
 
     if (emailSearch) {
       url += `&email_like=${emailSearch}`;
@@ -140,19 +140,7 @@ export default function Customer() {
               <td>{u.email}</td>
               <td>{u.name}</td>
               <td>{u.phone}</td>
-              <td>
-                {u.address.zipcode +
-                  ", " +
-                  u.address.detailAddress +
-                  ", " +
-                  u.address.street +
-                  ", " +
-                  u.address.district +
-                  ", " +
-                  u.address.province +
-                  ", " +
-                  u.address.country}
-              </td>
+              <td>{u.address}</td>
             </tr>
           ))}
         </tbody>

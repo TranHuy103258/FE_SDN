@@ -29,7 +29,12 @@ export default function AdminSideNav(props) {
     >
       <Link className={location.pathname === "/" ? "active" : ""} to={"/"}>
         <div className="d-flex justify-content-center">
-          <img className="p-2" style={{ width: "70%" }} alt="logo"></img>
+          <img
+            className="p-2"
+            src="img/3.png"
+            style={{ width: "70%" }}
+            alt="logo"
+          ></img>
         </div>
       </Link>
       <div
@@ -106,7 +111,7 @@ export default function AdminSideNav(props) {
                 {" "}
                 Blog list
               </Link>
-              <Link style={{ width: "100%" }} to={"/admin/blog/add-blog"}>
+              <Link style={{ width: "100%" }} to={"/admin/blog/add"}>
                 {" "}
                 Blog add new
               </Link>
@@ -124,7 +129,7 @@ export default function AdminSideNav(props) {
             </Accordion.Header>
           </Accordion.Item>
         </Link>
-        <Link style={{ width: "100%" }} to={"/admin/customer"}>
+        <Link style={{ width: "100%" }} to={"/admin/user"}>
           <Accordion.Item eventKey="5">
             <Accordion.Header>
               <BiUser
