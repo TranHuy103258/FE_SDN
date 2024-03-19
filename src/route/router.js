@@ -16,6 +16,7 @@ import EditBlog from "../Admin/pages/Blog/EditBlog";
 import ErrorPage from "../pages/Error/errorPage.js";
 import Error404Page from "../pages/Error/error404.js";
 import Error403Page from "../pages/Error/error403.js";
+import DefaultAdminLayout from "../Admin/layouts/DefaultAdminLayout.js";
 
 const allRoutes = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ const allRoutes = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <AuthorizationRoute roles={["Admin"]}>
-          <Outlet />
+          <DefaultAdminLayout>
+            <Outlet />
+          </DefaultAdminLayout>
         </AuthorizationRoute>
       </ProtectedRoute>
     ),

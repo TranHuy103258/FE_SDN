@@ -8,9 +8,10 @@ const Header = () => {
   const navigate = useNavigate();
   const { isLogged, currentUser, isAdmin } = useAuthentication();
   const [thisUser, setThisUser] = useState();
+  const [thisAdmin, setThisAdmin] = useState();
 
   useEffect(() => {
-    if (isLogged || isAdmin) {
+    if (isLogged) {
       fetch(
         "http://localhost:9999/users/" +
           JSON.parse(sessionStorage.getItem("data")).email
@@ -18,7 +19,7 @@ const Header = () => {
         .then((res) => res.json())
         .then((json) => setThisUser(json));
     }
-  }, [isLogged, isAdmin]);
+  }, [isLogged]);
 
   const handleBlog = () => {
     window.location.href = "/admin/blog";
@@ -306,6 +307,12 @@ const Header = () => {
                   Khuyến Mãi
                 </a>
               </li>
+
+              <li class="nav-item" style={{ padding: "10px" }}>
+                <a class="nav-link" href="/blog" style={{ color: "white" }}>
+                  Blogs
+                </a>
+              </li>
             </ul>
 
             <div class="icon">
@@ -336,7 +343,7 @@ const Header = () => {
                   <div class="login">
                     {thisUser?.role === "Admin" && (
                       <div class="ls_title">
-                        <Link className="login" to={"/admin/blog"}>
+                        <Link className="login" onClick={handleBlog}>
                           Quản lý blogs
                         </Link>
                       </div>

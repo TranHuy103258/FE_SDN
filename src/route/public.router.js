@@ -10,6 +10,8 @@ import AllProduct from "../pages/AllProduct";
 import HomePage from "../pages/HomePage";
 import ChangePassPage from "../pages/ChangePassPage";
 import UserHomePage from "../pages/UserHomePage";
+import BlogDetail from "../components/blog/BlogDetail";
+import BlogPage from "../pages/BlogPage";
 
 export function publicRoutes() {
   return {
@@ -21,6 +23,8 @@ export function publicRoutes() {
       { path: "/register", element: <RegisterPage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/change", element: <ChangePassPage /> },
+      { path: "/blog", element: <BlogPage /> },
+      { path: "/blog/:id", element: <BlogDetail /> },
       { path: "/order", element: <OrderPage /> },
       { path: "/orderdetail", element: <OrderDetailPage /> },
       { path: "/cart", element: <CartPage /> },
