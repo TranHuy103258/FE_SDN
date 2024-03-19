@@ -21,7 +21,7 @@ const Header = () => {
   }, [isLogged, isAdmin]);
 
   const handleBlog = () => {
-    window.location.href = `/admin/blog`;
+    window.location.href = "/admin/blog";
   };
 
   const handleLogout = () => {
@@ -336,7 +336,7 @@ const Header = () => {
                   <div class="login">
                     {thisUser?.role === "Admin" && (
                       <div class="ls_title">
-                        <Link class="login" onClick={handleBlog}>
+                        <Link className="login" to={"/admin/blog"}>
                           Quản lý blogs
                         </Link>
                       </div>

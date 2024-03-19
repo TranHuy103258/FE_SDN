@@ -29,7 +29,7 @@ const allRoutes = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      { index: true, element: <BlogList /> },
+      { index: true, element: <Navigate to={"/admin"} /> },
       // blogs
       { path: "/admin/blog", element: <BlogList /> },
       { path: "/admin/blog/detail/:id", element: <BlogDetail /> },
