@@ -1,77 +1,176 @@
-import React from 'react';
-import './Product.css';
-const Product = () => {
-    return (
-        <div class="container">
-            <div class="row sp4">
-                <div class="col-xl-6 sp3_trai" >
+import React from "react";
+import "./Product.css";
+import { useState, useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import {
+  formatCurrency,
+  calculateDiscountPercentage,
+} from "../../ultils/function";
 
-                    <img src="img/13.jpg" alt="" class="trai3_anhto" />
+const Product = ({ productId, subProductId }) => {
+  const [subProduct, setSubProduct] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [color, setColor] = useState("");
+  const [memory, setMemory] = useState("");
+  const [productMemory, setProductMemory] = useState([]);
+  const [productColor, setProductColor] = useState([]);
 
-                    <div class="trai3_anhnho">
-                        <img src="img/13.jpg" alt="" />
-                    </div>
-                    <div class="trai3_anhnho">
-                        <img src="img/13.jpg" alt="/" />
-                    </div>
-                    <div class="trai3_anhnho">
-                        <img src="img/13.jpg" alt="" />
-                    </div>
-                    <div class="trai3_anhnho">
-                        <img src="img/13.jpg" alt="" />
-                    </div>
+  useEffect(() => {
+    fetchData();
+    // fetch(`http://localhost:9999/products/subProduct/${subProductId}`)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log(product);
+    //         setSubProduct(data);
+    //         setMemory(data.memory);
+    //         setColor(data.color);
+    //         // if(product){
+    //         //     const filteredProducts = product.subProducts.filter(p => p.memory === data.memory);
+    //         //     setProductColor(filteredProducts.map(p => p.color));
+    //         // }
+    //     })
+  }, []);
 
-                    <div class="trai3_anhnho1">
-                        <img src="img/13.jpg" alt="" />
-                    </div>
-                    <div class="trai3_anhnho1">
-                        <img src="img/13.jpg" alt="" />
-                    </div>
-                    <div class="trai3_anhnho1">
-                        <img src="img/13.jpg" alt="" />
-                    </div>
+  async function fetchData() {
+    try {
+      const responseProduct = await fetch(
+        `http://localhost:9999/products/find/${productId}`,
+        { method: "GET" }
+      );
+      const dataProduct = await responseProduct.json();
 
-                </div>
+      setProductMemory(dataProduct.subProducts.map((p) => p.memory));
+      setProduct(dataProduct);
 
-                <div class="col-xl-6 sp3_phai">
-                    <form  >
+      const responseSubProduct = await fetch(
+        `http://localhost:9999/products/subProduct/${subProductId}`
+      );
+      const dataSubProduct = await responseSubProduct.json();
+      console.log(dataSubProduct);
+      setSubProduct(dataSubProduct);
+      setMemory(dataSubProduct.memory);
+      setColor(dataSubProduct.color);
 
+      const filteredProducts = dataProduct.subProducts.filter(
+        (p) => p.memory === dataSubProduct.memory
+      );
+      setProductColor(filteredProducts.map((p) => p.color));
+    } catch (error) {
+      console.log("Lỗi:", error);
+    }
+  }
 
-                        <p class="tensanpham">Iphone 15 Pro Max 256GB</p>
-                        <div class="gia">
-                            <p class="giagiam">14.450.000 ₫</p>
-                            <p class="giabandau">24.990.000 ₫</p>
+  const handleClickColor = (color) => {
+    console.log(color);
+    setColor(color);
+  };
 
-                        </div>
+  const handleClickMemory = (memory) => {
+    fetch(
+      `http://localhost:9999/products/subProduct?storage=${memory}&&productId=${productId}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log(data[0].subProducts);
+        setSubProduct(data[0].subProducts);
+        setMemory(memory);
+        setColor(data[0].subProducts.color);
+        // console.log(data.color)
+        setProductColor(data.map((d) => d.subProducts.color));
+      });
+  };
+  return (
+    <div class="container">
+      <div class="row sp4">
+        <div class="col-xl-6 sp3_trai">
+          <img src="img/13.jpg" alt="" class="trai3_anhto" />
 
-                        <p class="chinhsach">
-                            Mua trước trả sau với Kredivo <br />
-                            Trả sau lên đến 12 tháng | Ưu đãi 50% tối đa 100k | Tải app và đăng ký ngay
-                            <a href="" title="">tại đây</a>
-                        </p>
-                        <p class="tinhtrang">
-                            Tình trạng: Còn hàng (10)
-                        </p>
-                        <p style={{ fontSize: '15px' }} >Kích Thước:</p>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="/" />
+          </div>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="" />
+          </div>
 
-                        <p class="khoiluong">
-                            <button><a href="">-</a></button>
-                            <input type="number" name="num" value="1" />
-                            <button><a href="">+</a></button>
-                        </p>
-                        <div class="sp3_nut">
-                            <button type="submit" class="mua" >
-                                Thêm vào giỏ
-                            </button>
-                            <div class="tuvan">
-                                Tư vấn:19002126
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+          <div class="trai3_anhnho1">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho1">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho1">
+            <img src="img/13.jpg" alt="" />
+          </div>
         </div>
-    );
+
+        <div class="col-xl-6 sp3_phai">
+          <form>
+            <p class="tensanpham" style={{ padding: 0 }}>
+              {subProduct.subName}
+            </p>
+            <div class="gia" style={{ justifyContent: "normal" }}>
+              <p class="giagiam" style={{ paddingRight: "10px" }}>
+                {formatCurrency(subProduct.price)}
+              </p>
+              <p class="giabandau">
+                {formatCurrency(subProduct.discountPrice)}
+              </p>
+            </div>
+
+            <p style={{ fontSize: "15px" }}>Dung Lượng:</p>
+            <div className="color">
+              {productMemory.map((m) => (
+                <div
+                  id="memoryPicker"
+                  onClick={() => handleClickMemory(m)}
+                  style={{
+                    border: `2px solid ${
+                      memory === m ? "#007bff" : "#6c757d6e"
+                    }`,
+                  }}
+                >
+                  <p style={{ margin: 0 }}>{m} </p>
+                </div>
+              ))}
+            </div>
+
+            <p style={{ fontSize: "15px" }}>Màu sắc:{color}</p>
+            <div className="color">
+              {productColor.map((c) => (
+                <div
+                  id="colorPicker"
+                  onClick={() => handleClickColor(c)}
+                  style={{
+                    backgroundColor: "red",
+                    border: `2px solid ${
+                      color === c ? "#007bff" : "transparent"
+                    }`,
+                  }}
+                ></div>
+              ))}
+            </div>
+            <p class="tinhtrang">
+              Tình trạng: Còn hàng ({subProduct.quantity})
+            </p>
+
+            <div class="sp3_nut">
+              <button type="submit" class="mua">
+                Thêm vào giỏ
+              </button>
+              <div class="tuvan">Tư vấn:19002126</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Product;

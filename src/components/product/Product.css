@@ -89,6 +89,31 @@ p.khoiluong button a {
 	color: black;
 	font-size: 18px;
 }
+/* color */
+#colorPicker {
+	padding:10px;
+	margin-right: 10px;
+	display: block;
+	width: 35px; /* Adjust width as needed */
+	height: 35px; /* Adjust height as needed */
+	border: 2px solid transparent; /* Initial border color */
+	border-radius: 50%; /* To make it a circle */
+	outline: none; /* Remove default focus outline */
+  }
+  
+div.color {
+	display: flex;
+}
+
+#memoryPicker{
+	margin-right: 10px;
+	border-radius: 5px;
+	padding: 5px;
+    font-size: 15px;
+    color: #80808078;
+    background-color: white;
+
+}
 
 div.sp3_nut {
 	/*display: flex;*/

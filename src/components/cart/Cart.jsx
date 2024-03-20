@@ -1,6 +1,41 @@
 import React from "react";
 import "./Cart.css";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
+
 const Cart = () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:9999/products/cookie/65ef088eeb3187cd951c4fcc",
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
+      const data = await response.text();
+      console.log(data); // In ra "Cookie đã được tạo!" từ phản hồi của backend
+
+      // const cookieValue = Cookies.get('product');
+
+      // // Sử dụng cookieValue
+      // console.log(cookieValue);
+      // Lấy tất cả các cookies từ trình duyệt
+      const cookiesArray = document.cookie.split(";");
+
+      // In ra từng cookie
+      cookiesArray.forEach((cookie) => {
+        console.log(cookie.trim());
+      });
+    } catch (error) {
+      console.error("Lỗi:", error);
+    }
+  };
+
   return (
     <>
       <section id="cart-container" class="container my-5">

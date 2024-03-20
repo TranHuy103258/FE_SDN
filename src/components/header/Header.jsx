@@ -110,25 +110,35 @@ const Header = () => {
 
   return (
     <>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="khoi">
-            <div class="col-xl-4 khoitrai">
-              <p>Hotline: 19002126 (8h - 12h, 13h30 - 17h)</p>
-              <a href="" title="">
-                Liên hệ hợp tác
-              </a>
-            </div>
-            <div class="col-xl-3 khoiphai">
-              <a href="" title="">
-                Tìm cửa hàng
-              </a>
-              <a href="" title="">
-                Mua hàng tại Shopify
-              </a>
+      <div class="khoi1">
+        <div class="container">
+          <div class="row">
+            <div class="khoi">
+              <div class="col-xl-4 khoitrai">
+                <p>Hotline: 19002126 (8h - 12h, 13h30 - 17h)</p>
+                <a href="" title="">
+                  Liên hệ hợp tác
+                </a>
+              </div>
+              <div class="col-xl-3 khoiphai">
+                <a href="" title="">
+                  Tìm cửa hàng
+                </a>
+                <a href="" title="">
+                  Mua hàng tại Shopify
+                </a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-xl-3 khoiphai">
+        <a href="" title="">
+          Tìm cửa hàng
+        </a>
+        <a href="" title="">
+          Mua hàng tại Shopify
+        </a>
       </div>
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light khoi2">
