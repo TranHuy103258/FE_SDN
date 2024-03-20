@@ -2,6 +2,22 @@ import { React, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Header.css";
+import { Link } from "react-router-dom";
+
+
+const Header = () => {
+    const [cartSize, setCartSize] = useState([]);
+    useEffect(() => {
+        function handleDropdown() {
+            var pt1 = document.querySelectorAll("a#navbarDropdownMenuLink");
+            var pt2 = document.querySelectorAll("ul.dropdown-menu");
+            var d2 = document.querySelectorAll("div.icon1.user");
+
+
+            var pt4 = document.querySelectorAll("div.vuong");
+            var pt5 = document.querySelectorAll("div.login");
+
+
 import { useAuthentication } from "../../auth/use-authentication";
 
 const Header = () => {
@@ -9,6 +25,8 @@ const Header = () => {
   const { isLogged, currentUser, isAdmin } = useAuthentication();
   const [thisUser, setThisUser] = useState();
   const [thisAdmin, setThisAdmin] = useState();
+  const [cartSize, setCartSize] = useState([]);
+
 
   useEffect(() => {
     if (isLogged) {
@@ -20,7 +38,6 @@ const Header = () => {
         .then((json) => setThisUser(json));
     }
   }, [isLogged]);
-
   const handleBlog = () => {
     window.location.href = "/admin/blog";
   };
@@ -104,30 +121,54 @@ const Header = () => {
         }
       });
     }
+        handleDropdown();
+        fetchData();
+    }, []); // useEffect sẽ chỉ chạy một lần sau khi component được render
 
-    handleDropdown();
-  }, []); // useEffect sẽ chỉ chạy một lần sau khi component được render
 
-  return (
-    <>
-      <div class="khoi1">
-        <div class="container">
-          <div class="row">
-            <div class="khoi">
-              <div class="col-xl-4 khoitrai">
-                <p>Hotline: 19002126 (8h - 12h, 13h30 - 17h)</p>
-                <a href="" title="">
-                  Liên hệ hợp tác
-                </a>
-              </div>
-              <div class="col-xl-3 khoiphai">
-                <a href="" title="">
-                  Tìm cửa hàng
-                </a>
-                <a href="" title="">
-                  Mua hàng tại Shopify
-                </a>
-              </div>
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`http://localhost:9999/products/cart`, {
+                method: 'GET',
+                credentials: 'include'
+
+            });
+            const data = await response.json();
+            console.log(data.length); // In ra "Cookie đã được tạo!" từ phản hồi của backend
+            setCartSize(data.length)
+
+
+
+        } catch (error) {
+            console.error('Lỗi:', error);
+        }
+    };
+
+    return (
+        <>
+            <div class="khoi1">
+                <div class="container">
+                    <div class="row">
+                        <div class="khoi">
+                            <div class="col-xl-4 khoitrai">
+                                <p>Hotline: 19002126 (8h - 12h, 13h30 - 17h)</p>
+                                <a href="" title="">
+                                    Liên hệ hợp tác
+                                </a>
+                            </div>
+                            <div class="col-xl-3 khoiphai">
+                                <a href="" title="">
+                                    Tìm cửa hàng
+                                </a>
+                                <a href="" title="">
+                                    Mua hàng tại Shopify
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
           </div>
         </div>
@@ -317,7 +358,6 @@ const Header = () => {
                   Khuyến Mãi
                 </a>
               </li>
-
               <li class="nav-item" style={{ padding: "10px" }}>
                 <a class="nav-link" href="/blog" style={{ color: "white" }}>
                   Blogs
