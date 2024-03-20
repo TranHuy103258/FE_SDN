@@ -43,10 +43,57 @@ const Product = ({ productId, subProductId }) => {
             console.log("Lỗi:", error);
         }
     }
+  }
 
-  
+  const handleClickColor = (color) => {
+    console.log(color);
+    setColor(color);
+  };
 
+  const handleClickMemory = (memory) => {
+    fetch(
+      `http://localhost:9999/products/subProduct?storage=${memory}&&productId=${productId}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log(data[0].subProducts);
+        setSubProduct(data[0].subProducts);
+        setMemory(memory);
+        setColor(data[0].subProducts.color);
+        // console.log(data.color)
+        setProductColor(data.map((d) => d.subProducts.color));
+      });
+  };
+  return (
+    <div class="container">
+      <div class="row sp4">
+        <div class="col-xl-6 sp3_trai">
+          <img src="img/13.jpg" alt="" class="trai3_anhto" />
 
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="/" />
+          </div>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho">
+            <img src="img/13.jpg" alt="" />
+          </div>
+
+          <div class="trai3_anhnho1">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho1">
+            <img src="img/13.jpg" alt="" />
+          </div>
+          <div class="trai3_anhnho1">
+            <img src="img/13.jpg" alt="" />
+          </div>
+        </div>
     const handleClickColor = (color) => {
         fetch(`http://localhost:9999/products/subPro?storage=${storage}&&productId=${productId}&&color=${color}`)
             .then(response => response.json())
@@ -119,10 +166,22 @@ const Product = ({ productId, subProductId }) => {
 
                 <img src={`http://localhost:9999/${subProduct?.images?.[0]}`} alt="" class="trai3_anhto" />
 
-                    
-
-
+            <p style={{ fontSize: "15px" }}>Dung Lượng:</p>
+            <div className="color">
+              {productMemory.map((m) => (
+                <div
+                  id="memoryPicker"
+                  onClick={() => handleClickMemory(m)}
+                  style={{
+                    border: `2px solid ${
+                      memory === m ? "#007bff" : "#6c757d6e"
+                    }`,
+                  }}
+                >
+                  <p style={{ margin: 0 }}>{m} </p>
                 </div>
+              ))}
+            </div>
 
                 <div class="col-xl-6 sp3_phai">
                     <form  >
@@ -172,9 +231,13 @@ const Product = ({ productId, subProductId }) => {
                         </div>
                     </form>
                 </div>
+
             </div>
+          </form>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Product;

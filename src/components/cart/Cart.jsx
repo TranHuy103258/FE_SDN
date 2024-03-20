@@ -27,12 +27,10 @@ const Cart = () => {
            
         } catch (error) {
             console.error('Lỗi:', error);
-
         }
-    };
-
-   
-
+      );
+      const data = await response.text();
+      console.log(data); // In ra "Cookie đã được tạo!" từ phản hồi của backend
 
     const handleDelete=(p)=>{
         const deleteFromCart = async (p) => {
@@ -71,11 +69,19 @@ const Cart = () => {
                         <td>Số Lượng</td>
                         <td>Tổng tiền</td>
 
+      // // Sử dụng cookieValue
+      // console.log(cookieValue);
+      // Lấy tất cả các cookies từ trình duyệt
+      const cookiesArray = document.cookie.split(";");
 
-                    </tr>
-                    </thead>
-                    <tbody>
-
+      // In ra từng cookie
+      cookiesArray.forEach((cookie) => {
+        console.log(cookie.trim());
+      });
+    } catch (error) {
+      console.error("Lỗi:", error);
+    }
+  };
                     {cartSize&&product.map(p=>(  <tr>
                             <td onClick={()=>handleDelete(p)}>
                                 <i class="fas fa-trash-alt"></i>
