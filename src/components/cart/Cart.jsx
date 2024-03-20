@@ -6,6 +6,7 @@ import { formatCurrency, calculateDiscountPercentage } from '../../ultils/functi
 
 const Cart = () => {
     const [product,setProduct]=useState([]);
+    const [cartSize,setCartSize]=useState("");
     useEffect(() => {
         fetchData();
     }, []);
@@ -18,37 +19,39 @@ const Cart = () => {
 
             });
             const data = await response.json();
-            console.log(data); // In ra "Cookie đã được tạo!" từ phản hồi của backend
+            console.log(data.length); // In ra "Cookie đã được tạo!" từ phản hồi của backend
             setProduct(data);
+            setCartSize(data.length);
 
        
            
         } catch (error) {
             console.error('Lỗi:', error);
+
         }
     };
 
-    const deleteFromCart = async (p) => {
-        try {
-            console.log(p.productId); 
-            console.log(p._id); 
-            console.log(p.quantity); 
-            const response = await fetch(`http://localhost:9999/products/cart?subProductId=${p._id}`, {
-                method: 'DELETE',
-                credentials: 'include'
-
-            });
-            const data = await response.json();
-            console.log(data);    
-           
-        } catch (error) {
-            console.error('Lỗi:', error);
-        }
-    };
-
+   
 
 
     const handleDelete=(p)=>{
+        const deleteFromCart = async (p) => {
+            try {
+                console.log(p.productId); 
+                console.log(p._id); 
+                console.log(p.quantity); 
+                const response = await fetch(`http://localhost:9999/products/cart?subProductId=${p._id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+    
+                });
+                const data = await response.json();
+                console.log(data);    
+               
+            } catch (error) {
+                console.error('Lỗi:', error);
+            }
+        };
         console.log(p);
         deleteFromCart(p);
         fetchData();
@@ -73,7 +76,7 @@ const Cart = () => {
                     </thead>
                     <tbody>
 
-                    {product&&product.map(p=>(  <tr>
+                    {cartSize&&product.map(p=>(  <tr>
                             <td onClick={()=>handleDelete(p)}>
                                 <i class="fas fa-trash-alt"></i>
                             </td>
@@ -94,14 +97,7 @@ const Cart = () => {
             </section>
             <section id="cart-bottom" class="container">
                 <div class="row cart">
-                    {/* <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
-                        <div>
-                            <h5>COUPON</h5>
-                            <p>Mã Giảm Giá</p>
-                            <input type="text" placeholder="Nhập"/>
-                                <button style={{backGround:'black',color:'white',padding:'5px'}} >Nhập mã</button>
-                        </div>
-                    </div> */}
+                    
                     <div class="total col-lg-6 col-md-6 col-12 mb-4">
                         <div>
                             <h5>Giỏ Hàng</h5>
