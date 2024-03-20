@@ -49,9 +49,25 @@ p.tinhtrang{
 div.kichthuoc {
     display: flex;
 } 
+div.size {
+/*    width: 50px;
+    height: 50px;
+    color: white;
+    background: black;
+*/    margin: 5px;/*
+    border:1px solid gray;*/
+} 
 
-
-
+div.size input[type="button"] {
+    background: white;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+div.size.sd input[type="button"]  {
+    background: black;
+    color: white;
+}
 p.khoiluong {
 	font-size: 15px;
 }
@@ -61,6 +77,17 @@ p.khoiluong button {
 	border: none;
 	background: #F3F4F4;
 	/*color: #F3F4F4;*/
+}
+p.khoiluong input {
+	width: 64px;
+    height: 40px;
+    text-align: center;
+}
+
+p.khoiluong button a {
+	text-decoration:none;
+	color: black;
+	font-size: 18px;
 }
 /* color */
 #colorPicker {
@@ -107,4 +134,10 @@ div.tuvan {
 	padding: 10px 40px;
 	border: 1px solid black;
 	cursor: pointer;
+}
+
+.dunglai1{
+	position: fixed;
+	top:0px;
+	right:0px;
 }
