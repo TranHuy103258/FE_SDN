@@ -1,19 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Header.css";
-// import logo from '../../../public/img/3.jpg';
+import { Link } from "react-router-dom";
+
 
 const Header = () => {
+    const [cartSize, setCartSize] = useState([]);
     useEffect(() => {
         function handleDropdown() {
             var pt1 = document.querySelectorAll("a#navbarDropdownMenuLink");
             var pt2 = document.querySelectorAll("ul.dropdown-menu");
             var d2 = document.querySelectorAll("div.icon1.user");
-       
+
 
             var pt4 = document.querySelectorAll("div.vuong");
             var pt5 = document.querySelectorAll("div.login");
-        
+
 
             var d1 = document.querySelectorAll("li.nav-item.dropdown");
 
@@ -71,7 +73,7 @@ const Header = () => {
                         menu.classList.remove("menuchay2_2");
                     }
                 } else if (window.pageYOffset < vitrimenu) {
-   
+
                     trangthaimenu = "duoimenu";
                     menu.classList.remove("menuchay2_1");
                 }
@@ -79,7 +81,28 @@ const Header = () => {
         }
 
         handleDropdown();
+        fetchData();
     }, []); // useEffect sẽ chỉ chạy một lần sau khi component được render
+
+
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch(`http://localhost:9999/products/cart`, {
+                method: 'GET',
+                credentials: 'include'
+
+            });
+            const data = await response.json();
+            console.log(data.length); // In ra "Cookie đã được tạo!" từ phản hồi của backend
+            setCartSize(data.length)
+
+
+
+        } catch (error) {
+            console.error('Lỗi:', error);
+        }
+    };
 
     return (
         <>
@@ -296,11 +319,12 @@ const Header = () => {
                                 </div>
                                 <i class="fa-regular fa-user khoi2"></i>
                             </div>
-
-                            <div class="icon1">
-                                <div class="khoiden2">6</div>
-                                <i class="fa-solid fa-cart-shopping khoi2"></i>
-                            </div>
+                            <Link to={`/cart`}>
+                                <div class="icon1">
+                                    <div class="khoiden2">{cartSize ? cartSize : 0}</div>
+                                    <i class="fa-solid fa-cart-shopping khoi2"></i>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

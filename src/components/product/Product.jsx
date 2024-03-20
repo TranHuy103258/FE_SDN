@@ -1,33 +1,21 @@
 import React from 'react';
 import './Product.css';
 import { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { formatCurrency, calculateDiscountPercentage } from '../../ultils/function';
 
 const Product = ({ productId, subProductId }) => {
     const [subProduct, setSubProduct] = useState([]);
     const [product, setProduct] = useState([]);
     const [color, setColor] = useState("");
-    const [memory, setMemory] = useState("");
-    const [productMemory, setProductMemory] = useState([]);
+    const [storage, setStorage] = useState("");
+    const [productStorage, setProductStorage] = useState([]);
     const [productColor, setProductColor] = useState([]);
 
 
 
     useEffect(() => {
         fetchData();
-        // fetch(`http://localhost:9999/products/subProduct/${subProductId}`)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(product);
-        //         setSubProduct(data);
-        //         setMemory(data.memory);
-        //         setColor(data.color);
-        //         // if(product){
-        //         //     const filteredProducts = product.subProducts.filter(p => p.memory === data.memory);
-        //         //     setProductColor(filteredProducts.map(p => p.color));
-        //         // }    
-        //     })
     }, []);
 
     async function fetchData() {
@@ -38,17 +26,17 @@ const Product = ({ productId, subProductId }) => {
             );
             const dataProduct = await responseProduct.json();
            
-            setProductMemory(dataProduct.subProducts.map(p => p.memory))
+            setProductStorage(dataProduct.storage)
             setProduct(dataProduct)
 
             const responseSubProduct = await fetch(`http://localhost:9999/products/subProduct/${subProductId}`);
             const dataSubProduct = await responseSubProduct.json();
             console.log(dataSubProduct);
             setSubProduct(dataSubProduct);
-            setMemory(dataSubProduct.memory);
+            setStorage(dataSubProduct.storage);
             setColor(dataSubProduct.color);
 
-            const filteredProducts = dataProduct.subProducts.filter(p => p.memory === dataSubProduct.memory);
+            const filteredProducts = dataProduct.subProducts.filter(p => p.storage === dataSubProduct.storage);
             setProductColor(filteredProducts.map(p => p.color));
 
         } catch (error) {
@@ -56,30 +44,82 @@ const Product = ({ productId, subProductId }) => {
         }
     }
 
+  
+
+
     const handleClickColor = (color) => {
-        console.log(color)
-        setColor(color)
+        fetch(`http://localhost:9999/products/subPro?storage=${storage}&&productId=${productId}&&color=${color}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log(data.subProducts);
+                setSubProduct(data.subProducts);
+                setStorage(storage)
+                console.log(color)
+                setColor(color)
+                // setProductColor(data.map(d=>d.subProducts.color))
+            })
+   
     }
 
-    const handleClickMemory = (memory) => {
-        fetch(`http://localhost:9999/products/subProduct?storage=${memory}&&productId=${productId}`)
+    const handleClickMemory = (storage) => {
+        fetch(`http://localhost:9999/products/subProduct?storage=${storage}&&productId=${productId}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 console.log(data[0].subProducts);
                 setSubProduct(data[0].subProducts);
-                setMemory(memory)
+                setStorage(storage)
                 setColor(data[0].subProducts.color);
                 // console.log(data.color)
                 setProductColor(data.map(d=>d.subProducts.color))
             })
     }
+    const navigate = useNavigate();
+   
+     
+
+        const handleAddToCart = () => {
+            const fetchData1 = async () => {
+                try {
+                    const response = await fetch(`http://localhost:9999/products/setCart?productId=${productId}&subProductId=${subProductId}&quantity=1`, {
+                        method: 'GET',
+                        credentials: 'include'
+        
+                    });
+                    const data = await response.json();
+                    console.log(data); // In ra "Cookie đã được tạo!" từ phản hồi của backend
+                    setSubProduct(data);
+        
+        
+                   
+                } catch (error) {
+                    console.error('Lỗi:', error);
+                }
+            };
+            fetchData1();
+            // Chuyển hướng và truyền thông tin sản phẩm
+            navigate('/cart', {
+                state: {
+                    productId: productId,
+                    subProductId: subProduct._id,
+                    quantity: 1
+                }
+            });
+        };
+    
+
+
+
+
     return (
         <div class="container">
             <div class="row sp4">
                 <div class="col-xl-6 sp3_trai" >
 
-                    <img src="/img/13.jpg" alt="" class="trai3_anhto" />
+                <img src={`http://localhost:9999/${subProduct?.images?.[0]}`} alt="" class="trai3_anhto" />
+
+                    
 
 
                 </div>
@@ -94,10 +134,10 @@ const Product = ({ productId, subProductId }) => {
 
                         <p style={{ fontSize: '15px' }} >Dung Lượng:</p>
                         <div className="color">
-                            {productMemory.map(m => (
-                                <div id="memoryPicker" onClick={() => handleClickMemory(m)}
-                                    style={{ border: `2px solid ${memory === m ? '#007bff' : '#6c757d6e'}` }}>
-                                    <p style={{ margin: 0 }}>{m} </p>
+                            {productStorage.map(s => (
+                                <div id="memoryPicker" onClick={() => handleClickMemory(s)}
+                                    style={{ border: `2px solid ${storage === s ? '#007bff' : '#6c757d6e'}` }}>
+                                    <p style={{ margin: 0 }}>{s} </p>
                                 </div>
 
                             ))}
@@ -123,7 +163,7 @@ const Product = ({ productId, subProductId }) => {
 
 
                         <div class="sp3_nut">
-                            <button type="submit" class="mua" >
+                            <button onClick={handleAddToCart} class="mua" >
                                 Thêm vào giỏ
                             </button>
                             <div class="tuvan">

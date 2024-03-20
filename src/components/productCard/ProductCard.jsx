@@ -9,9 +9,10 @@ import { formatCurrency, calculateDiscountPercentage } from '../../ultils/functi
 
 
 
-const ProductCard = ({category}) => {
+const ProductCard = ({ category }) => {
 
     const [Product, setProduct] = useState([]);
+
 
 
     useEffect(() => {
@@ -27,6 +28,7 @@ const ProductCard = ({category}) => {
             const data = await response.json();
 
             setProduct(data);
+
 
         } catch (error) {
             console.log("Lỗi:", error);
@@ -45,17 +47,19 @@ const ProductCard = ({category}) => {
                     }}>
                         <div class="khoi6">
                             <div class="anh6">
-                                <img src="img/13.jpg" alt="" />
+                                <img src={`http://localhost:9999/${product.subProducts?.images[0]}`} alt="" />
+
                             </div>
                             <div class="anh6_2">
-                                <img src="img/14.jpg" alt="" />
+                                <img src={`http://localhost:9999/${product.subProducts?.images[1]}`} alt="" />
+
                             </div>
 
                             <p class="tensanpham">{product.subProducts?.subName} </p>
                             <div class="gia">
                                 <p class="giagiam">{formatCurrency(product.subProducts?.discountPrice)}</p>
                                 <p class="giabandau">{formatCurrency(product.subProducts?.price)}</p>
-                                <p class="giabandau">-{calculateDiscountPercentage(product.subProducts?.discountPrice,product.subProducts?.price).toFixed(1)}%</p>
+                                <p class="giabandau">-{calculateDiscountPercentage(product.subProducts?.discountPrice, product.subProducts?.price).toFixed(1)}%</p>
 
                             </div>
                         </div>

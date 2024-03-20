@@ -1,38 +1,59 @@
 import React from 'react';
 import './Cart.css';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import Cookies from 'js-cookie';
+import { formatCurrency, calculateDiscountPercentage } from '../../ultils/function';
 
 const Cart = () => {
+    const [product,setProduct]=useState([]);
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
         try {
-            const response = await fetch('http://localhost:9999/products/cookie/65ef088eeb3187cd951c4fcc', {
+            const response = await fetch(`http://localhost:9999/products/cart`, {
                 method: 'GET',
                 credentials: 'include'
 
             });
-            const data = await response.text();
+            const data = await response.json();
             console.log(data); // In ra "Cookie đã được tạo!" từ phản hồi của backend
+            setProduct(data);
 
-            // const cookieValue = Cookies.get('product');
-
-            // // Sử dụng cookieValue
-            // console.log(cookieValue);
-            // Lấy tất cả các cookies từ trình duyệt
-            const cookiesArray = document.cookie.split(';');
-
-            // In ra từng cookie
-            cookiesArray.forEach(cookie => {
-                console.log(cookie.trim());
-            });
+       
+           
         } catch (error) {
             console.error('Lỗi:', error);
         }
     };
+
+    const deleteFromCart = async (p) => {
+        try {
+            console.log(p.productId); 
+            console.log(p._id); 
+            console.log(p.quantity); 
+            const response = await fetch(`http://localhost:9999/products/cart?subProductId=${p._id}`, {
+                method: 'DELETE',
+                credentials: 'include'
+
+            });
+            const data = await response.json();
+            console.log(data);    
+           
+        } catch (error) {
+            console.error('Lỗi:', error);
+        }
+    };
+
+
+
+    const handleDelete=(p)=>{
+        console.log(p);
+        deleteFromCart(p);
+        fetchData();
+        
+    }
 
     return (
         <>
@@ -52,28 +73,22 @@ const Cart = () => {
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td>
-                                {/* <form >
-                                        <input type="hidden" name="id" value="1" />
-                                        <input type="hidden" name="size" value="43" />
-                                        <input type="submit" value="Xóa" />
-                                    </form> */}
-
-                                <a href="RemoveProduct?id=${i.product.productID}&size=${i.size}"><i class="fas fa-trash-alt"></i></a>
+                    {product&&product.map(p=>(  <tr>
+                            <td onClick={()=>handleDelete(p)}>
+                                <i class="fas fa-trash-alt"></i>
                             </td>
-                            <td><img src="img/14.jpg" alt="" /></td>
-                            <td><h5>Iphone 15 Pro Max</h5></td>
-                            <td><h5>24.000.000</h5></td>
-                            <td><h5>Tím mộng mơ</h5></td>
+                            <td><img src={`http://localhost:9999/${p?.images?.[0]}`} alt="" /></td>
+                            <td><h5>{p.subName}</h5></td>
+                            <td><h5>{formatCurrency(p.discountPrice)}</h5></td>
+                            <td><h5>{p.color}</h5></td>
                             <td class="numProduct">
                                 <button><a href="ProcessServlet?num=-1&size=${i.size}&id=${i.product.productID}">-</a></button>
-                                <input type="text" readonly value="4" />
+                                <input type="text" readonly value={p.quantity} />
                                 <button><a href="ProcessServlet?num=1&size=${i.size}&id=${i.product.productID}">+</a></button>
                             </td>
-                            <td><h5>24.000.000</h5></td>
+                            <td><h5>{formatCurrency(p.discountPrice*p.quantity)}</h5></td>
                         </tr>
-
+                    ))}
                     </tbody>
                 </table>
             </section>
